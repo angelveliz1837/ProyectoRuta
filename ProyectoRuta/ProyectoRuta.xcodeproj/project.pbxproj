@@ -14,6 +14,14 @@
 		84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF92CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld */; };
 		84DF2AFD2CEE757D00BF2187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */; };
 		84DF2B002CEE757D00BF2187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DF2AFE2CEE757D00BF2187 /* LaunchScreen.storyboard */; };
+		84DF2B082CEE7B1000BF2187 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */; };
+		84DF2B0A2CEE7B2200BF2187 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */; };
+		84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */; };
+		84DF2B0E2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */; };
+		84DF2B122CEE812800BF2187 /* RegistroBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */; };
+		84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */; };
+		84DF2B162CEE837F00BF2187 /* PaseUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */; };
+		84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84DF2AFF2CEE757D00BF2187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84DF2B012CEE757D00BF2187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroTrabajadorViewController.swift; sourceTree = "<group>"; };
+		84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroBusViewController.swift; sourceTree = "<group>"; };
+		84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroParaderoViewController.swift; sourceTree = "<group>"; };
+		84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseUsuarioViewController.swift; sourceTree = "<group>"; };
+		84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseTrabajadorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +78,18 @@
 				84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */,
 				84DF2AF42CEE757C00BF2187 /* ViewController.swift */,
 				84DF2AF62CEE757C00BF2187 /* Main.storyboard */,
+				84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */,
 				84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */,
 				84DF2AFE2CEE757D00BF2187 /* LaunchScreen.storyboard */,
 				84DF2B012CEE757D00BF2187 /* Info.plist */,
 				84DF2AF92CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld */,
+				84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */,
+				84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */,
+				84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */,
+				84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */,
+				84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */,
+				84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */,
+				84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -142,9 +166,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DF2AF52CEE757C00BF2187 /* ViewController.swift in Sources */,
+				84DF2B0E2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift in Sources */,
+				84DF2B0A2CEE7B2200BF2187 /* RegistroViewController.swift in Sources */,
 				84DF2AF12CEE757C00BF2187 /* AppDelegate.swift in Sources */,
+				84DF2B122CEE812800BF2187 /* RegistroBusViewController.swift in Sources */,
+				84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */,
 				84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */,
+				84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */,
+				84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */,
+				84DF2B082CEE7B1000BF2187 /* LoginViewController.swift in Sources */,
 				84DF2AF32CEE757C00BF2187 /* SceneDelegate.swift in Sources */,
+				84DF2B162CEE837F00BF2187 /* PaseUsuarioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

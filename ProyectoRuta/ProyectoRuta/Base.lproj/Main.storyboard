@@ -443,7 +443,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opl-jK-enN">
-                                <rect key="frame" x="69" y="727" width="72" height="35"/>
+                                <rect key="frame" x="44" y="719" width="72" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Borrar"/>
@@ -453,7 +453,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zML-i8-sPd">
-                                <rect key="frame" x="176" y="727" width="150" height="35"/>
+                                <rect key="frame" x="124" y="719" width="150" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Mostrar Consola"/>
@@ -463,7 +463,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxs-JS-0wy">
-                                <rect key="frame" x="141" y="770" width="65" height="35"/>
+                                <rect key="frame" x="282" y="719" width="65" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tabla"/>
@@ -484,7 +484,7 @@
                         <outlet property="dniTextField" destination="7ea-Tg-q5u" id="6OC-w5-Pkk"/>
                         <outlet property="licenciaTextField" destination="33a-ss-UMm" id="jtO-rB-U2Z"/>
                         <outlet property="nombreTextField" destination="6xv-xW-0bk" id="wFD-Ei-gLK"/>
-                        <segue destination="ueN-ZD-HaC" kind="show" identifier="updateView" id="kHr-W5-HAw"/>
+                        <segue destination="ueN-ZD-HaC" kind="show" identifier="" id="kHr-W5-HAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCB-SI-68K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -504,7 +504,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="413" id="5CR-ei-L4k">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="413" id="5CR-ei-L4k">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="361" height="413"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5CR-ei-L4k" id="wtD-0z-NYi">
@@ -565,7 +565,7 @@
                     <navigationItem key="navigationItem" id="omC-i3-jzH"/>
                     <connections>
                         <outlet property="listaTrabajadorTableView" destination="3q1-jc-7rL" id="Ooo-Hk-Knb"/>
-                        <segue destination="PHN-gd-VVa" kind="show" id="mWy-0G-cVI"/>
+                        <segue destination="PHN-gd-VVa" kind="show" identifier="updateView" id="mWy-0G-cVI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdR-uI-5Sl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

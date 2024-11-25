@@ -41,7 +41,7 @@ class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UI
     func configureTableView(){
         listaTrabajadorTableView.delegate = self //delegate
         listaTrabajadorTableView.dataSource = self //dataSource
-        listaTrabajadorTableView.rowHeight = 60 //tamanio de la celda
+        listaTrabajadorTableView.rowHeight = 280 //tamanio de la celda
     }
     
     //funcion para mostrar datos

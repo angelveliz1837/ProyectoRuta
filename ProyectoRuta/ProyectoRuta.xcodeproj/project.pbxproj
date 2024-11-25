@@ -24,6 +24,7 @@
 		84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */; };
 		84DF2B162CEE837F00BF2187 /* PaseUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */; };
 		84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */; };
+		B760B5B92CF53C680041F0BE /* TrabajadorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroParaderoViewController.swift; sourceTree = "<group>"; };
 		84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseUsuarioViewController.swift; sourceTree = "<group>"; };
 		84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseTrabajadorViewController.swift; sourceTree = "<group>"; };
+		B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrabajadorTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */,
 				842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */,
 				842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */,
+				B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				842A1E7D2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift in Sources */,
 				84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */,
 				84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */,
+				B760B5B92CF53C680041F0BE /* TrabajadorTableViewCell.swift in Sources */,
 				84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */,
 				84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */,
 				84DF2B082CEE7B1000BF2187 /* LoginViewController.swift in Sources */,

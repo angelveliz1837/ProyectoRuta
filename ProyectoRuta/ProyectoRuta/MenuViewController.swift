@@ -18,6 +18,8 @@ class MenuViewController: UIViewController {
     func goToTrabajador(){
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RegistroTrabajadorViewController") as? RegistroTrabajadorViewController
+        viewController?.modalTransitionStyle = .coverVertical
+        viewController?.modalPresentationStyle = .overCurrentContext
         self.present(viewController ?? ViewController(), animated: true, completion: nil)
     }
     

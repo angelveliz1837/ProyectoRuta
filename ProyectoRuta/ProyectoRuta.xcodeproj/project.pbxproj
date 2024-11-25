@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842A1E7D2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */; };
+		842A1E7F2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */; };
 		84DF2AF12CEE757C00BF2187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF02CEE757C00BF2187 /* AppDelegate.swift */; };
 		84DF2AF32CEE757C00BF2187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */; };
 		84DF2AF52CEE757C00BF2187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF42CEE757C00BF2187 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTrabajadorViewController.swift; sourceTree = "<group>"; };
+		842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarTrabajadorViewController.swift; sourceTree = "<group>"; };
 		84DF2AED2CEE757C00BF2187 /* ProyectoRuta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoRuta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DF2AF02CEE757C00BF2187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */,
 				84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */,
 				84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */,
+				842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */,
+				842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 				84DF2B0A2CEE7B2200BF2187 /* RegistroViewController.swift in Sources */,
 				84DF2AF12CEE757C00BF2187 /* AppDelegate.swift in Sources */,
 				84DF2B122CEE812800BF2187 /* RegistroBusViewController.swift in Sources */,
+				842A1E7F2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift in Sources */,
+				842A1E7D2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift in Sources */,
 				84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */,
 				84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */,
 				84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */,

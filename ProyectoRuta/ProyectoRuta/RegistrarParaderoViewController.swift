@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  RegistrarParaderoViewController.swift
 //  ProyectoRuta
 //
 //  Created by DAMII on 27/11/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class RegistrarParaderoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

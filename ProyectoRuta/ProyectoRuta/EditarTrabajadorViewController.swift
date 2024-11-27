@@ -2,14 +2,14 @@
 //  EditarTrabajadorViewController.swift
 //  ProyectoRuta
 //
-//  Created by DISEÑO on 25/11/24.
+//  Created by DAMII on 27/11/24.
 //
 
 import UIKit
 import CoreData
 
 class EditarTrabajadorViewController: UIViewController {
-    // componentes de la UI
+    
     @IBOutlet weak var dniEditTextField: UITextField!
     @IBOutlet weak var nombreEditTextField: UITextField!
     @IBOutlet weak var apellidoPaternoEditTextField: UITextField!
@@ -46,12 +46,12 @@ class EditarTrabajadorViewController: UIViewController {
     //funcion para actualizar trabajador
     func editarTrabajador(){
         let context = connectBD() //contexto para conectarnos a la base de datos
-        trabajadorUpdate?.setValue(dniEditTextField, forKey: "dni")
-        trabajadorUpdate?.setValue(nombreEditTextField, forKey: "nombre")
-        trabajadorUpdate?.setValue(apellidoPaternoEditTextField, forKey: "apellidoPaterno")
-        trabajadorUpdate?.setValue(apellidoMaternoEditTextField, forKey: "apellidoMaterno")
-        trabajadorUpdate?.setValue(cargoEditTextField, forKey: "cargo")
-        trabajadorUpdate?.setValue(licenciaEditTextField, forKey: "licencia")
+        trabajadorUpdate?.setValue(dniEditTextField.text, forKey: "dni")
+        trabajadorUpdate?.setValue(nombreEditTextField.text, forKey: "nombre")
+        trabajadorUpdate?.setValue(apellidoPaternoEditTextField.text, forKey: "apellidoPaterno")
+        trabajadorUpdate?.setValue(apellidoMaternoEditTextField.text, forKey: "apellidoMaterno")
+        trabajadorUpdate?.setValue(cargoEditTextField.text, forKey: "cargo")
+        trabajadorUpdate?.setValue(licenciaEditTextField.text, forKey: "licencia")
         //capturador de errores
         do{
             try context.save() //guardamos en base de datos
@@ -64,7 +64,6 @@ class EditarTrabajadorViewController: UIViewController {
         }
     }
     
-
     
     @IBAction func didTapUpdate(_ sender: UIButton) {
         editarTrabajador()//llamamos a la funcion para editar trabajador

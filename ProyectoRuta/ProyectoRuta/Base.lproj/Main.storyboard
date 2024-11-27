@@ -420,6 +420,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Registrar"/>
                                 <connections>
                                     <action selector="didTapRegistrar:" destination="pb0-W1-pO1" eventType="touchUpInside" id="iT2-Iw-9Fp"/>
+                                    <action selector="didTapRegistrar:" destination="I82-Fn-Kmb" eventType="touchUpInside" id="lpd-Jd-ATZ"/>
                                     <segue destination="g6w-hv-2hI" kind="show" id="jEm-Zu-th1"/>
                                 </connections>
                             </button>
@@ -430,6 +431,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Ver Lista"/>
                                 <connections>
                                     <action selector="didTapTable:" destination="pb0-W1-pO1" eventType="touchUpInside" id="ebS-p9-76s"/>
+                                    <action selector="didTapTable:" destination="I82-Fn-Kmb" eventType="touchUpInside" id="h1L-ZJ-7Mi"/>
                                     <segue destination="g6w-hv-2hI" kind="show" id="JFc-Cp-eEs"/>
                                 </connections>
                             </button>
@@ -438,6 +440,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tr9-ey-iQP"/>
+                    <connections>
+                        <outlet property="anioFabricacionTextField" destination="T5P-aB-4of" id="hf6-cL-1C3"/>
+                        <outlet property="estadoTextField" destination="hXP-aY-1wE" id="ywl-IY-yV7"/>
+                        <outlet property="marcaTextField" destination="rbo-qd-3lc" id="erb-Y6-MTT"/>
+                        <outlet property="modeloTextField" destination="5Cn-J5-UCj" id="gKL-bx-ih9"/>
+                        <outlet property="placaTextField" destination="486-Is-WRx" id="Z9T-rj-pLN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsi-NT-M7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -625,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iu-67-99o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394.6564885496182" y="663.38028169014092"/>
+            <point key="canvasLocation" x="2401" y="708"/>
         </scene>
         <!--Lista Bus View Controller-->
         <scene sceneID="ana-As-jRE">
@@ -640,7 +649,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="218" id="3kK-Da-4Jt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BusTableViewCell" rowHeight="218" id="3kK-Da-4Jt" customClass="BusTableViewCell" customModule="ProyectoRuta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3kK-Da-4Jt" id="UsW-rT-fNY">
@@ -684,6 +693,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="anioFabricacionLabel" destination="QPx-kN-gts" id="03g-nA-Ql6"/>
+                                            <outlet property="estadoLabel" destination="2A0-MW-RxX" id="k2T-bM-Hac"/>
+                                            <outlet property="marcaLabel" destination="7tE-5P-o7h" id="kKD-Xd-6fm"/>
+                                            <outlet property="modeloLabel" destination="aJd-O8-n3R" id="nGQ-ER-YER"/>
+                                            <outlet property="placaLabel" destination="ysP-SO-TkP" id="kGV-XH-0Ij"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -693,12 +709,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="QaI-qH-PvX"/>
                     <connections>
-                        <segue destination="F0v-5a-Bx6" kind="show" identifier="updateView" id="mxB-BN-lT0"/>
+                        <outlet property="listaBusTableView" destination="b8j-V6-MzX" id="kxc-nW-FjR"/>
+                        <segue destination="F0v-5a-Bx6" kind="show" identifier="updateBView" id="mxB-BN-lT0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNu-pY-73H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3220.6106870229005" y="692.25352112676057"/>
+            <point key="canvasLocation" x="3204" y="735"/>
         </scene>
         <!--Editar Trabajador View Controller-->
         <scene sceneID="G7L-zD-33g">
@@ -814,12 +831,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Actualizar"/>
+                                <connections>
+                                    <action selector="didTapUpdate:" destination="F0v-5a-Bx6" eventType="touchUpInside" id="7H1-vv-Kkn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vyS-mA-rCa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2aV-Z6-g0W"/>
+                    <connections>
+                        <outlet property="anioFabricacionEditTextField" destination="oaj-yk-mFk" id="54F-7L-Qhi"/>
+                        <outlet property="estadoEditTextField" destination="9e3-Dg-Fse" id="Zom-rv-Bhh"/>
+                        <outlet property="marcaEditTextField" destination="yUT-wk-tvj" id="kE9-G9-4kf"/>
+                        <outlet property="modeloEditTextField" destination="6OO-4m-VAW" id="tUQ-EP-AJ0"/>
+                        <outlet property="placaEditTextField" destination="uVf-gm-C6h" id="DHg-xX-DaR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpN-vq-aG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

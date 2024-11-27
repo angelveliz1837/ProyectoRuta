@@ -2,15 +2,15 @@
 //  ListaTrabajadorViewController.swift
 //  ProyectoRuta
 //
-//  Created by DISEÑO on 25/11/24.
+//  Created by DAMII on 27/11/24.
 //
 
-import UIKit // importamos UI
+import UIKit
 import CoreData // importamos CoreData para la persistencia en IOS
 
 //clase padre
 class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     //componentes de la UI
     @IBOutlet weak var listaTrabajadorTableView: UITableView!
     
@@ -72,16 +72,10 @@ class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //llamamos a la celda
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrabajadorTableViewCell", for: indexPath) as? TrabajadorTableViewCell
         let trabajador = trabajadorData[indexPath.row] //pasamos lo que hay en el arreglo de la lista
-        cell.textLabel?.text = "DNI: \(trabajador.dni ?? "")"//le pasamos el dni
-        cell.textLabel?.text = "Nombre: \(trabajador.nombre ?? "")"
-        cell.textLabel?.text = "Apellido Paterno: \(trabajador.apellidoPaterno ?? "")"
-        cell.textLabel?.text = "Apellido Materno: \(trabajador.apellidoMaterno ?? "")"
-        cell.textLabel?.text = "Cargo: \(trabajador.cargo ?? "")"
-        cell.textLabel?.text = "Licencia: \(trabajador.licencia ?? "")"
-        cell.selectionStyle = .none //ningun estilo
-        return cell //retornamos la celda
+        cell?.configureTrabajador(trabajador: trabajador, registroTrabajadorViewController: self) //llamamos a la configuracion de la celda para que se muestren los datos
+        return cell ?? UITableViewCell()//retornamos la celda
     }
     
     //para poder eliminar dentro del tableView
@@ -123,6 +117,4 @@ class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UI
             }
         }
     }
-
-
 }

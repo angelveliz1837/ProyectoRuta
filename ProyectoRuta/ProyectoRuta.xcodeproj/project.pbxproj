@@ -7,51 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		842A1E7D2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */; };
-		842A1E7F2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */; };
-		84DF2AF12CEE757C00BF2187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF02CEE757C00BF2187 /* AppDelegate.swift */; };
-		84DF2AF32CEE757C00BF2187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */; };
-		84DF2AF52CEE757C00BF2187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF42CEE757C00BF2187 /* ViewController.swift */; };
-		84DF2AF82CEE757C00BF2187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DF2AF62CEE757C00BF2187 /* Main.storyboard */; };
-		84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2AF92CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld */; };
-		84DF2AFD2CEE757D00BF2187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */; };
-		84DF2B002CEE757D00BF2187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DF2AFE2CEE757D00BF2187 /* LaunchScreen.storyboard */; };
-		84DF2B082CEE7B1000BF2187 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */; };
-		84DF2B0A2CEE7B2200BF2187 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */; };
-		84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */; };
-		84DF2B0E2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */; };
-		84DF2B122CEE812800BF2187 /* RegistroBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */; };
-		84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */; };
-		84DF2B162CEE837F00BF2187 /* PaseUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */; };
-		84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */; };
-		B760B5B92CF53C680041F0BE /* TrabajadorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */; };
+		B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */; };
+		B71B4A6F2CF7C12E00E2E6E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */; };
+		B71B4A712CF7C12E00E2E6E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */; };
+		B71B4A742CF7C12E00E2E6E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */; };
+		B71B4A772CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A752CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld */; };
+		B71B4A792CF7C12F00E2E6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */; };
+		B71B4A7C2CF7C12F00E2E6E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71B4A7A2CF7C12F00E2E6E3 /* LaunchScreen.storyboard */; };
+		B71B4A842CF7C3F900E2E6E3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A832CF7C3F900E2E6E3 /* LoginViewController.swift */; };
+		B71B4A862CF7C41800E2E6E3 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A852CF7C41800E2E6E3 /* RegistrarViewController.swift */; };
+		B71B4A882CF7C43B00E2E6E3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A872CF7C43B00E2E6E3 /* MenuViewController.swift */; };
+		B71B4A8A2CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A892CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift */; };
+		B71B4A8C2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A8B2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift */; };
+		B71B4A8E2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A8D2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift */; };
+		B71B4A902CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A8F2CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift */; };
+		B71B4A922CF7D21B00E2E6E3 /* RegistrarBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */; };
+		B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A932CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift */; };
+		B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */; };
+		B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */; };
+		B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTrabajadorViewController.swift; sourceTree = "<group>"; };
-		842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarTrabajadorViewController.swift; sourceTree = "<group>"; };
-		84DF2AED2CEE757C00BF2187 /* ProyectoRuta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoRuta.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		84DF2AF02CEE757C00BF2187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84DF2AF42CEE757C00BF2187 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84DF2AF72CEE757C00BF2187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84DF2AFA2CEE757C00BF2187 /* ProyectoRuta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProyectoRuta.xcdatamodel; sourceTree = "<group>"; };
-		84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84DF2AFF2CEE757D00BF2187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		84DF2B012CEE757D00BF2187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
-		84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroTrabajadorViewController.swift; sourceTree = "<group>"; };
-		84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroBusViewController.swift; sourceTree = "<group>"; };
-		84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroParaderoViewController.swift; sourceTree = "<group>"; };
-		84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseUsuarioViewController.swift; sourceTree = "<group>"; };
-		84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaseTrabajadorViewController.swift; sourceTree = "<group>"; };
-		B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrabajadorTableViewCell.swift; sourceTree = "<group>"; };
+		B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoRuta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B71B4A732CF7C12E00E2E6E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B71B4A762CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProyectoRuta.xcdatamodel; sourceTree = "<group>"; };
+		B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B71B4A7B2CF7C12F00E2E6E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B71B4A7D2CF7C12F00E2E6E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B71B4A832CF7C3F900E2E6E3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B71B4A852CF7C41800E2E6E3 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		B71B4A872CF7C43B00E2E6E3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B71B4A892CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarTrabajadorViewController.swift; sourceTree = "<group>"; };
+		B71B4A8B2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTrabajadorViewController.swift; sourceTree = "<group>"; };
+		B71B4A8D2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarTrabajadorViewController.swift; sourceTree = "<group>"; };
+		B71B4A8F2CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrabajadorTableViewCell.swift; sourceTree = "<group>"; };
+		B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarBusViewController.swift; sourceTree = "<group>"; };
+		B71B4A932CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarParaderoViewController.swift; sourceTree = "<group>"; };
+		B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarBusViewController.swift; sourceTree = "<group>"; };
+		B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaBusViewController.swift; sourceTree = "<group>"; };
+		B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		84DF2AEA2CEE757C00BF2187 /* Frameworks */ = {
+		B71B4A662CF7C12E00E2E6E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -61,44 +63,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84DF2AE42CEE757C00BF2187 = {
+		B71B4A602CF7C12E00E2E6E3 = {
 			isa = PBXGroup;
 			children = (
-				84DF2AEF2CEE757C00BF2187 /* ProyectoRuta */,
-				84DF2AEE2CEE757C00BF2187 /* Products */,
+				B71B4A6B2CF7C12E00E2E6E3 /* ProyectoRuta */,
+				B71B4A6A2CF7C12E00E2E6E3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		84DF2AEE2CEE757C00BF2187 /* Products */ = {
+		B71B4A6A2CF7C12E00E2E6E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84DF2AED2CEE757C00BF2187 /* ProyectoRuta.app */,
+				B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84DF2AEF2CEE757C00BF2187 /* ProyectoRuta */ = {
+		B71B4A6B2CF7C12E00E2E6E3 /* ProyectoRuta */ = {
 			isa = PBXGroup;
 			children = (
-				84DF2AF02CEE757C00BF2187 /* AppDelegate.swift */,
-				84DF2AF22CEE757C00BF2187 /* SceneDelegate.swift */,
-				84DF2AF42CEE757C00BF2187 /* ViewController.swift */,
-				84DF2AF62CEE757C00BF2187 /* Main.storyboard */,
-				84DF2B172CEE902900BF2187 /* PaseTrabajadorViewController.swift */,
-				84DF2AFC2CEE757D00BF2187 /* Assets.xcassets */,
-				84DF2AFE2CEE757D00BF2187 /* LaunchScreen.storyboard */,
-				84DF2B012CEE757D00BF2187 /* Info.plist */,
-				84DF2AF92CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld */,
-				84DF2B072CEE7B1000BF2187 /* LoginViewController.swift */,
-				84DF2B092CEE7B2200BF2187 /* RegistroViewController.swift */,
-				84DF2B0B2CEE7C5C00BF2187 /* MenuViewController.swift */,
-				84DF2B0D2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift */,
-				84DF2B112CEE812800BF2187 /* RegistroBusViewController.swift */,
-				84DF2B132CEE813D00BF2187 /* RegistroParaderoViewController.swift */,
-				84DF2B152CEE837F00BF2187 /* PaseUsuarioViewController.swift */,
-				842A1E7C2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift */,
-				842A1E7E2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift */,
-				B760B5B82CF53C680041F0BE /* TrabajadorTableViewCell.swift */,
+				B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */,
+				B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */,
+				B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */,
+				B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */,
+				B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */,
+				B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */,
+				B71B4A7A2CF7C12F00E2E6E3 /* LaunchScreen.storyboard */,
+				B71B4A7D2CF7C12F00E2E6E3 /* Info.plist */,
+				B71B4A752CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld */,
+				B71B4A832CF7C3F900E2E6E3 /* LoginViewController.swift */,
+				B71B4A852CF7C41800E2E6E3 /* RegistrarViewController.swift */,
+				B71B4A872CF7C43B00E2E6E3 /* MenuViewController.swift */,
+				B71B4A892CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift */,
+				B71B4A8B2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift */,
+				B71B4A8D2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift */,
+				B71B4A8F2CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift */,
+				B71B4A932CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift */,
+				B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */,
+				B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */,
+				B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -106,13 +109,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84DF2AEC2CEE757C00BF2187 /* ProyectoRuta */ = {
+		B71B4A682CF7C12E00E2E6E3 /* ProyectoRuta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84DF2B042CEE757D00BF2187 /* Build configuration list for PBXNativeTarget "ProyectoRuta" */;
+			buildConfigurationList = B71B4A802CF7C12F00E2E6E3 /* Build configuration list for PBXNativeTarget "ProyectoRuta" */;
 			buildPhases = (
-				84DF2AE92CEE757C00BF2187 /* Sources */,
-				84DF2AEA2CEE757C00BF2187 /* Frameworks */,
-				84DF2AEB2CEE757C00BF2187 /* Resources */,
+				B71B4A652CF7C12E00E2E6E3 /* Sources */,
+				B71B4A662CF7C12E00E2E6E3 /* Frameworks */,
+				B71B4A672CF7C12E00E2E6E3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -120,25 +123,25 @@
 			);
 			name = ProyectoRuta;
 			productName = ProyectoRuta;
-			productReference = 84DF2AED2CEE757C00BF2187 /* ProyectoRuta.app */;
+			productReference = B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		84DF2AE52CEE757C00BF2187 /* Project object */ = {
+		B71B4A612CF7C12E00E2E6E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					84DF2AEC2CEE757C00BF2187 = {
+					B71B4A682CF7C12E00E2E6E3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 84DF2AE82CEE757C00BF2187 /* Build configuration list for PBXProject "ProyectoRuta" */;
+			buildConfigurationList = B71B4A642CF7C12E00E2E6E3 /* Build configuration list for PBXProject "ProyectoRuta" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -146,67 +149,68 @@
 				en,
 				Base,
 			);
-			mainGroup = 84DF2AE42CEE757C00BF2187;
-			productRefGroup = 84DF2AEE2CEE757C00BF2187 /* Products */;
+			mainGroup = B71B4A602CF7C12E00E2E6E3;
+			productRefGroup = B71B4A6A2CF7C12E00E2E6E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84DF2AEC2CEE757C00BF2187 /* ProyectoRuta */,
+				B71B4A682CF7C12E00E2E6E3 /* ProyectoRuta */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84DF2AEB2CEE757C00BF2187 /* Resources */ = {
+		B71B4A672CF7C12E00E2E6E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DF2B002CEE757D00BF2187 /* LaunchScreen.storyboard in Resources */,
-				84DF2AFD2CEE757D00BF2187 /* Assets.xcassets in Resources */,
-				84DF2AF82CEE757C00BF2187 /* Main.storyboard in Resources */,
+				B71B4A7C2CF7C12F00E2E6E3 /* LaunchScreen.storyboard in Resources */,
+				B71B4A792CF7C12F00E2E6E3 /* Assets.xcassets in Resources */,
+				B71B4A742CF7C12E00E2E6E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		84DF2AE92CEE757C00BF2187 /* Sources */ = {
+		B71B4A652CF7C12E00E2E6E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DF2AF52CEE757C00BF2187 /* ViewController.swift in Sources */,
-				84DF2B0E2CEE7EB400BF2187 /* RegistroTrabajadorViewController.swift in Sources */,
-				84DF2B0A2CEE7B2200BF2187 /* RegistroViewController.swift in Sources */,
-				84DF2AF12CEE757C00BF2187 /* AppDelegate.swift in Sources */,
-				84DF2B122CEE812800BF2187 /* RegistroBusViewController.swift in Sources */,
-				842A1E7F2CF5200A009EF7E3 /* EditarTrabajadorViewController.swift in Sources */,
-				842A1E7D2CF50F3A009EF7E3 /* ListaTrabajadorViewController.swift in Sources */,
-				84DF2B0C2CEE7C5C00BF2187 /* MenuViewController.swift in Sources */,
-				84DF2AFB2CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld in Sources */,
-				B760B5B92CF53C680041F0BE /* TrabajadorTableViewCell.swift in Sources */,
-				84DF2B182CEE902900BF2187 /* PaseTrabajadorViewController.swift in Sources */,
-				84DF2B142CEE813D00BF2187 /* RegistroParaderoViewController.swift in Sources */,
-				84DF2B082CEE7B1000BF2187 /* LoginViewController.swift in Sources */,
-				84DF2AF32CEE757C00BF2187 /* SceneDelegate.swift in Sources */,
-				84DF2B162CEE837F00BF2187 /* PaseUsuarioViewController.swift in Sources */,
+				B71B4A712CF7C12E00E2E6E3 /* ViewController.swift in Sources */,
+				B71B4A902CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift in Sources */,
+				B71B4A922CF7D21B00E2E6E3 /* RegistrarBusViewController.swift in Sources */,
+				B71B4A8E2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift in Sources */,
+				B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */,
+				B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */,
+				B71B4A772CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld in Sources */,
+				B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */,
+				B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */,
+				B71B4A882CF7C43B00E2E6E3 /* MenuViewController.swift in Sources */,
+				B71B4A842CF7C3F900E2E6E3 /* LoginViewController.swift in Sources */,
+				B71B4A862CF7C41800E2E6E3 /* RegistrarViewController.swift in Sources */,
+				B71B4A8A2CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift in Sources */,
+				B71B4A6F2CF7C12E00E2E6E3 /* SceneDelegate.swift in Sources */,
+				B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */,
+				B71B4A8C2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84DF2AF62CEE757C00BF2187 /* Main.storyboard */ = {
+		B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DF2AF72CEE757C00BF2187 /* Base */,
+				B71B4A732CF7C12E00E2E6E3 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		84DF2AFE2CEE757D00BF2187 /* LaunchScreen.storyboard */ = {
+		B71B4A7A2CF7C12F00E2E6E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DF2AFF2CEE757D00BF2187 /* Base */,
+				B71B4A7B2CF7C12F00E2E6E3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -214,7 +218,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		84DF2B022CEE757D00BF2187 /* Debug */ = {
+		B71B4A7E2CF7C12F00E2E6E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,7 +278,7 @@
 			};
 			name = Debug;
 		};
-		84DF2B032CEE757D00BF2187 /* Release */ = {
+		B71B4A7F2CF7C12F00E2E6E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -328,7 +332,7 @@
 			};
 			name = Release;
 		};
-		84DF2B052CEE757D00BF2187 /* Debug */ = {
+		B71B4A812CF7C12F00E2E6E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -347,7 +351,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cibertec.ProyectoRuta;
+				PRODUCT_BUNDLE_IDENTIFIER = Cibertec.ProyectoRuta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -355,7 +359,7 @@
 			};
 			name = Debug;
 		};
-		84DF2B062CEE757D00BF2187 /* Release */ = {
+		B71B4A822CF7C12F00E2E6E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -374,7 +378,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cibertec.ProyectoRuta;
+				PRODUCT_BUNDLE_IDENTIFIER = Cibertec.ProyectoRuta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -385,20 +389,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84DF2AE82CEE757C00BF2187 /* Build configuration list for PBXProject "ProyectoRuta" */ = {
+		B71B4A642CF7C12E00E2E6E3 /* Build configuration list for PBXProject "ProyectoRuta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84DF2B022CEE757D00BF2187 /* Debug */,
-				84DF2B032CEE757D00BF2187 /* Release */,
+				B71B4A7E2CF7C12F00E2E6E3 /* Debug */,
+				B71B4A7F2CF7C12F00E2E6E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84DF2B042CEE757D00BF2187 /* Build configuration list for PBXNativeTarget "ProyectoRuta" */ = {
+		B71B4A802CF7C12F00E2E6E3 /* Build configuration list for PBXNativeTarget "ProyectoRuta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84DF2B052CEE757D00BF2187 /* Debug */,
-				84DF2B062CEE757D00BF2187 /* Release */,
+				B71B4A812CF7C12F00E2E6E3 /* Debug */,
+				B71B4A822CF7C12F00E2E6E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -406,17 +410,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		84DF2AF92CEE757C00BF2187 /* ProyectoRuta.xcdatamodeld */ = {
+		B71B4A752CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				84DF2AFA2CEE757C00BF2187 /* ProyectoRuta.xcdatamodel */,
+				B71B4A762CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodel */,
 			);
-			currentVersion = 84DF2AFA2CEE757C00BF2187 /* ProyectoRuta.xcdatamodel */;
+			currentVersion = B71B4A762CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodel */;
 			path = ProyectoRuta.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 84DF2AE52CEE757C00BF2187 /* Project object */;
+	rootObject = B71B4A612CF7C12E00E2E6E3 /* Project object */;
 }

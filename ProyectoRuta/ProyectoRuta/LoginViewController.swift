@@ -2,16 +2,12 @@
 //  LoginViewController.swift
 //  ProyectoRuta
 //
-//  Created by DISEÑO on 20/11/24.
+//  Created by DAMII on 27/11/24.
 //
 
 import UIKit
 
 class LoginViewController: UIViewController {
-    
-    
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,28 +15,15 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func goToIngresar(){
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
-        self.present(viewController ?? ViewController(), animated: true, completion: nil)
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
-    
-    
-    func goToRegistrar(){
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "RegistroViewController") as? RegistroViewController
-        self.present(viewController ?? ViewController(), animated: true, completion: nil)
-    }
-    
-    @IBAction func didTapRegistrar(_ sender: UIButton) {
-        goToRegistrar()
-    }
-    
-    
-    @IBAction func didTapIngresar(_ sender: UIButton) {
-        goToIngresar()
-    }
-    
-    
+    */
+
 }

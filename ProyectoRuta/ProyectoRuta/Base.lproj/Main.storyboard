@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="89"/>
+            <point key="canvasLocation" x="724" y="65"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="RBa-G9-4fY">
@@ -185,12 +185,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Iniciar Ruta"/>
+                                <connections>
+                                    <segue destination="miF-VX-TEj" kind="show" id="oSx-3e-2D0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1c-Br-g4h">
                                 <rect key="frame" x="192" y="391" width="128" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cerrar Sesion"/>
+                                <connections>
+                                    <action selector="didTapCerrar:" destination="ZLn-Sw-tis" eventType="touchUpInside" id="UDG-2x-6mm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5hx-om-2Zv"/>
@@ -420,6 +426,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Registrar"/>
                                 <connections>
                                     <action selector="didTapRegistrar:" destination="pb0-W1-pO1" eventType="touchUpInside" id="iT2-Iw-9Fp"/>
+                                    <action selector="didTapRegistrar:" destination="I82-Fn-Kmb" eventType="touchUpInside" id="lpd-Jd-ATZ"/>
                                     <segue destination="g6w-hv-2hI" kind="show" id="jEm-Zu-th1"/>
                                 </connections>
                             </button>
@@ -430,6 +437,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Ver Lista"/>
                                 <connections>
                                     <action selector="didTapTable:" destination="pb0-W1-pO1" eventType="touchUpInside" id="ebS-p9-76s"/>
+                                    <action selector="didTapTable:" destination="I82-Fn-Kmb" eventType="touchUpInside" id="h1L-ZJ-7Mi"/>
                                     <segue destination="g6w-hv-2hI" kind="show" id="JFc-Cp-eEs"/>
                                 </connections>
                             </button>
@@ -438,6 +446,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tr9-ey-iQP"/>
+                    <connections>
+                        <outlet property="anioFabricacionTextField" destination="T5P-aB-4of" id="hf6-cL-1C3"/>
+                        <outlet property="estadoTextField" destination="hXP-aY-1wE" id="ywl-IY-yV7"/>
+                        <outlet property="marcaTextField" destination="rbo-qd-3lc" id="erb-Y6-MTT"/>
+                        <outlet property="modeloTextField" destination="5Cn-J5-UCj" id="gKL-bx-ih9"/>
+                        <outlet property="placaTextField" destination="486-Is-WRx" id="Z9T-rj-pLN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsi-NT-M7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -538,6 +553,107 @@
             </objects>
             <point key="canvasLocation" x="3999" y="-6"/>
         </scene>
+        <!--Ruta View Controller-->
+        <scene sceneID="Pf8-3f-d5a">
+            <objects>
+                <viewController id="miF-VX-TEj" customClass="RutaViewController" customModule="ProyectoRuta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sB0-cp-Hs9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rx-wz-aie">
+                                <rect key="frame" x="259" y="374" width="100" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Actualizar"/>
+                                <connections>
+                                    <action selector="didTapActualizar:" destination="miF-VX-TEj" eventType="touchUpInside" id="64f-4X-yQN"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d0w-MN-i49">
+                                <rect key="frame" x="38" y="429" width="313" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ban-69-bf2">
+                                <rect key="frame" x="14" y="350" width="220" height="82"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guia de Ruta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9S-yA-Ixp">
+                                <rect key="frame" x="147" y="73" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resultado del Dia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3b-e5-cwz">
+                                <rect key="frame" x="130" y="331" width="133" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paradero 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIg-to-cgd">
+                                <rect key="frame" x="51" y="120" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sal-OR-XtF">
+                                <rect key="frame" x="114" y="152" width="254" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thl-1l-m9e">
+                                <rect key="frame" x="159" y="201" width="210" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbh-SL-iqC">
+                                <rect key="frame" x="51" y="162" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Observacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiV-mA-9Yq">
+                                <rect key="frame" x="51" y="209" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5W-uT-fSJ">
+                                <rect key="frame" x="157" y="257" width="71" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enviar"/>
+                                <connections>
+                                    <action selector="didTapEnviar:" destination="miF-VX-TEj" eventType="touchUpInside" id="1In-YJ-bf0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j1j-UW-jMT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YQp-R3-fY7"/>
+                    <connections>
+                        <outlet property="enviarButton" destination="H5W-uT-fSJ" id="raV-t5-oXg"/>
+                        <outlet property="horaDatePicker" destination="sal-OR-XtF" id="y4c-k3-FUN"/>
+                        <outlet property="observacionTextField" destination="Thl-1l-m9e" id="0oD-d3-9Bs"/>
+                        <outlet property="resultObservacionTextView" destination="d0w-MN-i49" id="2cE-zf-6qp"/>
+                        <outlet property="resultadohoraDatePicker" destination="Ban-69-bf2" id="8Ri-VF-rnE"/>
+                        <outlet property="updateButton" destination="3Rx-wz-aie" id="Duj-R9-Uer"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGV-OJ-MOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658.7786259541983" y="697.18309859154931"/>
+        </scene>
         <!--Lista Trabajador View Controller-->
         <scene sceneID="Gon-qg-UfL">
             <objects>
@@ -625,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iu-67-99o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394.6564885496182" y="663.38028169014092"/>
+            <point key="canvasLocation" x="2401" y="708"/>
         </scene>
         <!--Lista Bus View Controller-->
         <scene sceneID="ana-As-jRE">
@@ -640,7 +756,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="218" id="3kK-Da-4Jt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BusTableViewCell" rowHeight="218" id="3kK-Da-4Jt" customClass="BusTableViewCell" customModule="ProyectoRuta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3kK-Da-4Jt" id="UsW-rT-fNY">
@@ -684,6 +800,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="anioFabricacionLabel" destination="QPx-kN-gts" id="03g-nA-Ql6"/>
+                                            <outlet property="estadoLabel" destination="2A0-MW-RxX" id="k2T-bM-Hac"/>
+                                            <outlet property="marcaLabel" destination="7tE-5P-o7h" id="kKD-Xd-6fm"/>
+                                            <outlet property="modeloLabel" destination="aJd-O8-n3R" id="nGQ-ER-YER"/>
+                                            <outlet property="placaLabel" destination="ysP-SO-TkP" id="kGV-XH-0Ij"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -693,12 +816,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="QaI-qH-PvX"/>
                     <connections>
-                        <segue destination="F0v-5a-Bx6" kind="show" identifier="updateView" id="mxB-BN-lT0"/>
+                        <outlet property="listaBusTableView" destination="b8j-V6-MzX" id="kxc-nW-FjR"/>
+                        <segue destination="F0v-5a-Bx6" kind="show" identifier="updateBView" id="mxB-BN-lT0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNu-pY-73H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3220.6106870229005" y="692.25352112676057"/>
+            <point key="canvasLocation" x="3204" y="735"/>
         </scene>
         <!--Editar Trabajador View Controller-->
         <scene sceneID="G7L-zD-33g">
@@ -814,12 +938,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Actualizar"/>
+                                <connections>
+                                    <action selector="didTapUpdate:" destination="F0v-5a-Bx6" eventType="touchUpInside" id="7H1-vv-Kkn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vyS-mA-rCa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2aV-Z6-g0W"/>
+                    <connections>
+                        <outlet property="anioFabricacionEditTextField" destination="oaj-yk-mFk" id="54F-7L-Qhi"/>
+                        <outlet property="estadoEditTextField" destination="9e3-Dg-Fse" id="Zom-rv-Bhh"/>
+                        <outlet property="marcaEditTextField" destination="yUT-wk-tvj" id="kE9-G9-4kf"/>
+                        <outlet property="modeloEditTextField" destination="6OO-4m-VAW" id="tUQ-EP-AJ0"/>
+                        <outlet property="placaEditTextField" destination="uVf-gm-C6h" id="DHg-xX-DaR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpN-vq-aG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -850,6 +984,9 @@
         <segue reference="YfD-2h-TvA"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -26,6 +26,7 @@
 		B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */; };
 		B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */; };
 		B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */; };
+		B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarBusViewController.swift; sourceTree = "<group>"; };
 		B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaBusViewController.swift; sourceTree = "<group>"; };
 		B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTableViewCell.swift; sourceTree = "<group>"; };
+		B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */,
 				B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */,
 				B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */,
+				B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */,
 				B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */,
 				B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */,
 				B71B4A7A2CF7C12F00E2E6E3 /* LaunchScreen.storyboard */,
@@ -184,6 +187,7 @@
 				B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */,
 				B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */,
 				B71B4A772CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld in Sources */,
+				B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */,
 				B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */,
 				B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */,
 				B71B4A882CF7C43B00E2E6E3 /* MenuViewController.swift in Sources */,

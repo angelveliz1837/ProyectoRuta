@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22G513" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bus" representedClassName="Bus" syncable="YES" codeGenerationType="class">
+        <attribute name="anioFabricacion" optional="YES" attributeType="String"/>
+        <attribute name="estado" optional="YES" attributeType="String"/>
+        <attribute name="marca" optional="YES" attributeType="String"/>
+        <attribute name="modelo" optional="YES" attributeType="String"/>
+        <attribute name="placa" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Trabajador" representedClassName="Trabajador" syncable="YES" codeGenerationType="class">
         <attribute name="apellidoMaterno" optional="YES" attributeType="String"/>
         <attribute name="apellidoPaterno" optional="YES" attributeType="String"/>

@@ -8,22 +8,45 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var correoTextField: UITextField!
+    @IBOutlet weak var contraseniaTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func mostrarAlerta(mensaje: String) {
+        let alerta = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
+        alerta.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alerta, animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func didTapIngresar(_ sender: UIButton) {
+        guard let correo = correoTextField.text, !correo.isEmpty,
+              let contrasenia = contraseniaTextField.text, !contrasenia.isEmpty else {
+            mostrarAlerta(mensaje: "Por favor, completa todos los campos.")
+            return
+        }
+        
+        // Verificar credenciales
+        let savedCorreo = UserDefaults.standard.string(forKey: "correo")
+        let savedContrasenia = UserDefaults.standard.string(forKey: "contrasenia")
+        
+        if correo == savedCorreo && contrasenia == savedContrasenia {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        } else {
+            mostrarAlerta(mensaje: "Credenciales incorrectas.")
+        }
     }
-    */
+    
+    
+    @IBAction func didTapIrRegistrar(_ sender: UIButton) {
 
+    }
+    
+    
+    
 }

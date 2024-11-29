@@ -41,7 +41,7 @@ class ListaBusViewController: UIViewController, UITableViewDataSource, UITableVi
     func configureTableView(){
         listaBusTableView.delegate = self //delegate
         listaBusTableView.dataSource = self //dataSource
-        listaBusTableView.rowHeight = 250 //tamanio de la celda
+        listaBusTableView.rowHeight = 300 //tamanio de la celda
     }
     
     //funcion para mostrar datos

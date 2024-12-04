@@ -131,7 +131,16 @@ class EditarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UI
         trabajador.apellidoPaterno = apellidoPaternoEditTextField.text
         trabajador.apellidoMaterno = apellidoMaternoEditTextField.text
         trabajador.cargo = cargoOptions[cargoEditPicker.selectedRow(inComponent: 0)]
-        trabajador.licencia = licenciaEditTextField.text?.isEmpty == true ? nil : licenciaEditTextField.text
+        
+        // Si el cargo es "Chofer", asignar la licencia automáticamente como "QA + DNI"
+        let selectedCargo = cargoOptions[cargoEditPicker.selectedRow(inComponent: 0)]
+        if selectedCargo == "Chofer" {
+            if let dni = dniEditTextField.text, dni.count == 8 {
+                trabajador.licencia = "QA\(dni)" // Concatenar "QA" con el DNI
+            }
+        } else {
+            trabajador.licencia = licenciaEditTextField.text?.isEmpty == true ? nil : licenciaEditTextField.text
+        }
         
         do {
             try context.save()
@@ -159,5 +168,18 @@ class EditarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UI
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return cargoOptions[row]
+    }
+    
+    // Este método maneja el cambio de selección del cargo, y si se selecciona "Chofer", asigna la licencia automáticamente
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedCargo = cargoOptions[row]
+        if selectedCargo == "Chofer" {
+            // Si el cargo es Chofer, asignar licencia automáticamente como "QA" + DNI
+            if let dni = dniEditTextField.text, dni.count == 8 {
+                licenciaEditTextField.text = "QA\(dni)" // Concatenar "QA" con el DNI
+            }
+        } else {
+            licenciaEditTextField.text = "" // Limpiar la licencia si no es Chofer
+        }
     }
 }

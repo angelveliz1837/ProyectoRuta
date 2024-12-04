@@ -80,7 +80,6 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
             return
         }
         
-        // Eliminar la parte de formateo de la placa
         _ = placaText // Usamos la placa tal cual es ingresada
         
         // Función para validar los datos ingresados

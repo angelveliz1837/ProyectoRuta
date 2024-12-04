@@ -17,7 +17,6 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var cargoPicker: UIPickerView!
     @IBOutlet weak var licenciaTextField: UITextField!
     
-    
     let cargos = ["Chofer", "Monitor"] // Opciones para el cargo
     var selectedCargo: String? // Variable para almacenar el cargo seleccionado
     
@@ -32,7 +31,7 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    //         // Asegurarnos de que el UIPickerView sea interactivo
+        // Asegurarnos de que el UIPickerView sea interactivo
          cargoPicker.isUserInteractionEnabled = true
         
         // Configurar UIPickerView para el campo "cargo"
@@ -166,7 +165,6 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         print("Dirigirnos a la siguiente vista de la tabla")
     }
     
-    
     // UIPickerView DataSource y Delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // Solo una columna
@@ -182,5 +180,15 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCargo = cargos[row]
+        
+        // Si el cargo es "Chofer", llenar automáticamente el campo de licencia
+        if selectedCargo == "Chofer" {
+            // Asegurarnos de que el campo DNI no esté vacío antes de asignar la licencia
+            if let dniText = dniTextField.text, dniText.count == 8 {
+                licenciaTextField.text = "QA\(dniText)" // Concatenar "QA" con el DNI
+            }
+        } else {
+            licenciaTextField.text = "" // Limpiar el campo de licencia si no es Chofer
+        }
     }
 }

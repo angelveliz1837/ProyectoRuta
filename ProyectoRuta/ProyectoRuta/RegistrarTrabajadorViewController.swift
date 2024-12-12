@@ -1,14 +1,7 @@
-//
-//  RegistrarTrabajadorViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 27/11/24.
-//
-
 import UIKit
 import CoreData
-//clase padre RegistroTrabajadorViewController
-class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var dniTextField: UITextField!
     @IBOutlet weak var nombreTextField: UITextField!
@@ -17,7 +10,7 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var cargoPicker: UIPickerView!
     @IBOutlet weak var licenciaTextField: UITextField!
     
-    let cargos = ["Chofer", "Monitor"] // Opciones para el cargo
+    let cargos = ["Monitor", "Chofer"] // Opciones para el cargo
     var selectedCargo: String? // Variable para almacenar el cargo seleccionado
     
     var dni = ""
@@ -31,8 +24,11 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Asignar el delegado para el campo dniTextField
+        dniTextField.delegate = self
+        
         // Asegurarnos de que el UIPickerView sea interactivo
-         cargoPicker.isUserInteractionEnabled = true
+        cargoPicker.isUserInteractionEnabled = true
         
         // Configurar UIPickerView para el campo "cargo"
         cargoPicker.delegate = self
@@ -43,8 +39,26 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         cargoPicker.selectRow(0, inComponent: 0, animated: false) // Seleccionar el primer valor
     }
     
-    //Funciones
-    //funcion para la conexion a la base de datos
+    // Función delegada para limitar la longitud del texto y permitir solo números
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Solo permitir 8 caracteres y asegurarnos de que solo sean números
+        if textField == dniTextField {
+            // Comprobar si el texto ingresado es un número
+            let characterSet = CharacterSet.decimalDigits
+            if string.rangeOfCharacter(from: characterSet.inverted) != nil {
+                return false // Si el caracter no es un número, lo rechazamos
+            }
+            
+            // Limitar la longitud a 8 caracteres
+            let currentText = textField.text ?? ""
+            let newLength = currentText.count + string.count - range.length
+            return newLength <= 8 // Solo permitir un máximo de 8 caracteres
+        }
+        
+        return true // Para otros campos, no se limita la longitud
+    }
+    
+    //función para la conexion a la base de datos
     func connectBD() -> NSManagedObjectContext {
         let delegate = UIApplication.shared.delegate as! AppDelegate //instanciamos y llamamos al AppDelegate
         return delegate.persistentContainer.viewContext //retornamos el contexto de CoreData del AppDelegate
@@ -52,32 +66,58 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     
     //función para validar los datos ingresados
     func validateFields() -> Bool {
+        // Validar DNI: debe tener exactamente 8 números
         guard let dniText = dniTextField.text, dniText.count == 8, CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: dniText)) else {
-            print("El DNI debe tener exactamente 8 números")
+            showAlert(message: "El DNI debe tener exactamente 8 números y solo contener dígitos.")
             return false
         }
         
+        // Verificar si el DNI ya está registrado
+        if isDniExistente(dniText) {
+            showAlert(message: "El DNI \(dniText) ya está registrado.")
+            return false
+        }
+        
+        // Validar nombre: no debe contener números
         guard let nombreText = nombreTextField.text, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: nombreText.replacingOccurrences(of: " ", with: ""))) else {
-            print("El nombre no puede contener números")
+            showAlert(message: "El nombre no puede contener números.")
             return false
         }
         
+        // Validar apellido paterno: no debe contener números
         guard let apellidoPText = apellidoPaternoTextField.text, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: apellidoPText.replacingOccurrences(of: " ", with: ""))) else {
-            print("El apellido paterno no puede contener números")
+            showAlert(message: "El apellido paterno no puede contener números.")
             return false
         }
         
+        // Validar apellido materno: no debe contener números
         guard let apellidoMText = apellidoMaternoTextField.text, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: apellidoMText.replacingOccurrences(of: " ", with: ""))) else {
-            print("El apellido materno no puede contener números")
+            showAlert(message: "El apellido materno no puede contener números.")
             return false
         }
         
-        if selectedCargo == "Chofer", let licenciaText = licenciaTextField.text, licenciaText.isEmpty {
-            print("La licencia es obligatoria para el cargo de Chofer")
-            return false
-        }
+        // Si el cargo es Chofer, la licencia es obligatoria
+                if selectedCargo == "Chofer", let licenciaText = licenciaTextField.text, licenciaText.isEmpty {
+                    showAlert(message: "La licencia es obligatoria para el cargo de Chofer.")
+                    return false
+                }
         
         return true
+    }
+    
+    // Función para verificar si el DNI ya está registrado
+    func isDniExistente(_ dni: String) -> Bool {
+        let context = connectBD()
+        let fetchRequest: NSFetchRequest<Trabajador> = Trabajador.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "dni == %@", dni)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            return !result.isEmpty // Si ya existe, retorna true
+        } catch let error as NSError {
+            print("Error al verificar el DNI: \(error.localizedDescription)")
+            return false
+        }
     }
     
     //función para guardar
@@ -190,5 +230,12 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         } else {
             licenciaTextField.text = "" // Limpiar el campo de licencia si no es Chofer
         }
+    }
+    
+    // Función para mostrar alerta
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

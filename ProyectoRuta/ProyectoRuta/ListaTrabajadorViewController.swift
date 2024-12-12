@@ -1,120 +1,130 @@
-//
-//  ListaTrabajadorViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 27/11/24.
-//
-
 import UIKit
-import CoreData // importamos CoreData para la persistencia en IOS
+import CoreData
 
-//clase padre
-class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
-    //componentes de la UI
+    // UI components
     @IBOutlet weak var listaTrabajadorTableView: UITableView!
     
-    //variables
-    var trabajadorData = [Trabajador]() //array de tipo trabajador para mostrar a los trabajadores
+    // Variables
+    var trabajadorData = [Trabajador]() // Array de trabajadores
+    var filteredTrabajadores = [Trabajador]() // Array filtrado para búsqueda
     
-    //carga de memoria
+    // Propiedad para el UISearchController
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    // Carga de memoria
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView() //llamamos a la funcion de configuracion de la tabla
-        showData() //llamamos a la funcion para mostrar los datos del trabajador
+        configureTableView() // Configuración de la tabla
+        showData() // Cargar datos de los trabajadores
+        
+        // Configuración del UISearchController
+        searchController.searchResultsUpdater = self // El delegado de la actualización de resultados
+        searchController.obscuresBackgroundDuringPresentation = false // No oscurecer el fondo durante la búsqueda
+        searchController.searchBar.placeholder = "Buscar por nombre"
+        
+        // Establecer el searchBar como el header de la tabla
+        listaTrabajadorTableView.tableHeaderView = searchController.searchBar
+        
+        // Configurar el UISearchController
+        definesPresentationContext = true // Para evitar que el Search Controller se muestre cuando la vista está sobrepuesta
     }
     
-    //cuando esta apunto de aparecer la vista
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listaTrabajadorTableView.reloadData()//actualizamos la tabla
+        listaTrabajadorTableView.reloadData() // Recargar la tabla
     }
     
-    //FUNCIONES
-    //funcion para la conexion a la base de datos
-    func connectBD() -> NSManagedObjectContext{
-        let delegate = UIApplication.shared.delegate as! AppDelegate //instanciamos y llamamos al AppDelegate
-        return delegate.persistentContainer.viewContext //retornamos el contexto de CoreData del AppDelegate
+    // Función para la conexión a la base de datos
+    func connectBD() -> NSManagedObjectContext {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        return delegate.persistentContainer.viewContext
     }
     
-    //funcion para configurar la tabla
-    func configureTableView(){
-        listaTrabajadorTableView.delegate = self //delegate
-        listaTrabajadorTableView.dataSource = self //dataSource
-        listaTrabajadorTableView.rowHeight = 280 //tamanio de la celda
+    // Función para configurar la tabla
+    func configureTableView() {
+        listaTrabajadorTableView.delegate = self
+        listaTrabajadorTableView.dataSource = self
+        listaTrabajadorTableView.rowHeight = 280
     }
     
-    //funcion para mostrar datos
-    func showData(){
-        let context = connectBD() //contexto para conectarnos a la base de datos
-        let fetchRequest: NSFetchRequest<Trabajador> = Trabajador.fetchRequest()//objeto para visualizar la informacion en el cual debe ser de tipo NSFetchRequest de la base de datos Trabajador
-            // en un capturador de error
-        do{
-            trabajadorData = try context.fetch(fetchRequest)//objeto que llama al contexto para mostrar la informacion
-            print("Se mostraron los datos en la tabla")//imprimir
-        } catch let error as NSError{
-            //aca va el error
-            //podriamos poner una vista en especifica pero por el momento solos imprimimos por consola
+    // Función para mostrar datos
+    func showData() {
+        let context = connectBD()
+        let fetchRequest: NSFetchRequest<Trabajador> = Trabajador.fetchRequest()
+        
+        do {
+            trabajadorData = try context.fetch(fetchRequest)
+            filteredTrabajadores = trabajadorData // Inicialmente, los datos filtrados son los mismos que los datos completos
+            print("Se mostraron los datos en la tabla")
+        } catch let error as NSError {
             print("Error al mostrar: \(error.localizedDescription)")
         }
     }
     
-    //UITableViewDelegate - UITableViewDataSource
+    // UITableViewDataSource y UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
-        //retornamos un porque solo hay un table view
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //retornamos la cantidad del arreglo de la lista
-        return trabajadorData.count
+        return filteredTrabajadores.count // Usamos filteredTrabajadores en lugar de trabajadorData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //llamamos a la celda
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrabajadorTableViewCell", for: indexPath) as? TrabajadorTableViewCell
-        let trabajador = trabajadorData[indexPath.row] //pasamos lo que hay en el arreglo de la lista
-        cell?.configureTrabajador(trabajador: trabajador, registroTrabajadorViewController: self) //llamamos a la configuracion de la celda para que se muestren los datos
-        return cell ?? UITableViewCell()//retornamos la celda
+        let trabajador = filteredTrabajadores[indexPath.row]
+        cell?.configureTrabajador(trabajador: trabajador, registroTrabajadorViewController: self)
+        return cell ?? UITableViewCell()
     }
     
-    //para poder eliminar dentro del tableView
+    // Función para eliminar un trabajador
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let context = connectBD() //contexto para conectarnos a la base de datos
-        let trabajador = trabajadorData[indexPath.row]
-        //para elegir el swipe de elimianr
-        if editingStyle == .delete{
-            context.delete(trabajador)//eliminamos a la persona de la base de datos
-            //en un capturador de error
-            do{
-                try context.save()//guardamos
-                print("Se elimino el registrar") //imprimir
-            } catch let error as NSError{
-                //aca va el error
-                //podriamos poner una vista en especifica pero por el momento solo imprimimos por consola
+        let context = connectBD()
+        let trabajador = filteredTrabajadores[indexPath.row]
+        
+        if editingStyle == .delete {
+            context.delete(trabajador)
+            do {
+                try context.save()
+                print("Se eliminó el registro")
+            } catch let error as NSError {
                 print("Error al eliminar el registro: \(error.localizedDescription)")
             }
         }
-        showData() //llamar a la funcion para mostrar a las personas
-        listaTrabajadorTableView.reloadData() //actualizar la tabla
+        
+        showData()
+        listaTrabajadorTableView.reloadData()
     }
     
-    //para seleccionar un item de la celda del tableView
+    // Función para seleccionar un item de la celda
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //le pasamos el identificador updateView
         performSegue(withIdentifier: "updateView", sender: self)
     }
     
-    //llamamos a la funcion del segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //igualamos el segue con el identificador updateView
         if segue.identifier == "updateView" {
-            //validamos que el id sea el correcto de la celda de la tabla
-            if let id = listaTrabajadorTableView.indexPathForSelectedRow{
-                let rowTrabajador = trabajadorData[id.row] //le pasamos el id de la celda de la tabla a la variable rowTrabajador
-                let router = segue.destination as? EditarTrabajadorViewController //creamos el objeto destino de la clase final
-                router?.trabajadorUpdate = rowTrabajador //le enviamos el id hacia el otro viewController
+            if let id = listaTrabajadorTableView.indexPathForSelectedRow {
+                let rowTrabajador = filteredTrabajadores[id.row]
+                let router = segue.destination as? EditarTrabajadorViewController
+                router?.trabajadorUpdate = rowTrabajador
             }
         }
+    }
+    
+    // Función para manejar la búsqueda
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        if searchText.isEmpty {
+            filteredTrabajadores = trabajadorData // Si el campo de búsqueda está vacío, mostramos todos los trabajadores
+        } else {
+            filteredTrabajadores = trabajadorData.filter { trabajador in
+                trabajador.nombre?.lowercased().contains(searchText.lowercased()) ?? false
+            }
+        }
+        
+        listaTrabajadorTableView.reloadData() // Recargamos la tabla con los datos filtrados
     }
 }

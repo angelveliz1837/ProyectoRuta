@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71057582D0B324300FA450F /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = B71057572D0B324300FA450F /* AlamofireImage */; };
+		B710575A2D0B32FF00FA450F /* SociosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71057592D0B32FF00FA450F /* SociosViewController.swift */; };
+		B710575D2D0B335500FA450F /* ListaSocioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */; };
+		B710575E2D0B335500FA450F /* ListaSocioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B710575C2D0B335500FA450F /* ListaSocioTableViewCell.xib */; };
+		B71057602D0B353C00FA450F /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B710575F2D0B353C00FA450F /* model.swift */; };
 		B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */; };
 		B71B4A6F2CF7C12E00E2E6E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */; };
 		B71B4A712CF7C12E00E2E6E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */; };
@@ -33,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B71057592D0B32FF00FA450F /* SociosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociosViewController.swift; sourceTree = "<group>"; };
+		B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaSocioTableViewCell.swift; sourceTree = "<group>"; };
+		B710575C2D0B335500FA450F /* ListaSocioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListaSocioTableViewCell.xib; sourceTree = "<group>"; };
+		B710575F2D0B353C00FA450F /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoRuta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B71057582D0B324300FA450F /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,7 @@
 				B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */,
 				B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */,
 				B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */,
+				B71057592D0B32FF00FA450F /* SociosViewController.swift */,
 				B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */,
 				B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */,
 				B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */,
@@ -114,6 +125,9 @@
 				B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */,
 				B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */,
 				B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */,
+				B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */,
+				B710575C2D0B335500FA450F /* ListaSocioTableViewCell.xib */,
+				B710575F2D0B353C00FA450F /* model.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -134,6 +148,9 @@
 			dependencies = (
 			);
 			name = ProyectoRuta;
+			packageProductDependencies = (
+				B71057572D0B324300FA450F /* AlamofireImage */,
+			);
 			productName = ProyectoRuta;
 			productReference = B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +179,9 @@
 				Base,
 			);
 			mainGroup = B71B4A602CF7C12E00E2E6E3;
+			packageReferences = (
+				B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+			);
 			productRefGroup = B71B4A6A2CF7C12E00E2E6E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71B4A7C2CF7C12F00E2E6E3 /* LaunchScreen.storyboard in Resources */,
+				B710575E2D0B335500FA450F /* ListaSocioTableViewCell.xib in Resources */,
 				B71B4A792CF7C12F00E2E6E3 /* Assets.xcassets in Resources */,
 				B71B4A742CF7C12E00E2E6E3 /* Main.storyboard in Resources */,
 			);
@@ -200,14 +221,17 @@
 				B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */,
 				B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */,
 				B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */,
+				B710575D2D0B335500FA450F /* ListaSocioTableViewCell.swift in Sources */,
 				B767158C2D0A117400038A9D /* ListaParaderoViewController.swift in Sources */,
 				B71B4A882CF7C43B00E2E6E3 /* MenuViewController.swift in Sources */,
 				B71B4A842CF7C3F900E2E6E3 /* LoginViewController.swift in Sources */,
 				B71B4A862CF7C41800E2E6E3 /* RegistrarViewController.swift in Sources */,
 				B71B4A8A2CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift in Sources */,
 				B71B4A6F2CF7C12E00E2E6E3 /* SceneDelegate.swift in Sources */,
+				B71057602D0B353C00FA450F /* model.swift in Sources */,
 				B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */,
 				B71B4A8C2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift in Sources */,
+				B710575A2D0B32FF00FA450F /* SociosViewController.swift in Sources */,
 				B767158E2D0A125A00038A9D /* EditarParaderoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +381,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProyectoRuta/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -385,6 +410,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProyectoRuta/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -426,6 +452,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B71057572D0B324300FA450F /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B71B4A752CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld */ = {

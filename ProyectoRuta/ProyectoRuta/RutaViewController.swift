@@ -60,8 +60,6 @@ class RutaViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         
-        
-        
         // Ajustar la restricción superior del contentView para darle un margen de 40 puntos
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
@@ -76,10 +74,23 @@ class RutaViewController: UIViewController {
         var lastView: UIView? = nil
         
         for (index, paradero) in paraderos.enumerated() {
+            // Crear el título con el nombre del paradero
+            let paraderoLabel = UILabel()
+            paraderoLabel.text = " \(paradero.nombreParadero ?? "Desconocido")"
+            paraderoLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            paraderoLabel.textColor = .black
+            paraderoLabel.textAlignment = .center
+            paraderoLabel.numberOfLines = 1
+
+            let textohoraLabel = UILabel()
+            textohoraLabel.text = "Fecha y Hora"
             let horaDatePicker = createDatePicker()
-            let observacionTextField = createTextField(placeholder: "Observación para \(paradero.nombreParadero ?? "Paradero")")
+            let textoobsLabel = UILabel()
+            textoobsLabel.text = "Observacion"
+            let observacionTextField = createTextField(placeholder: "Escribe aqui")
             let enviarButton = createButton(title: "Enviar", action: #selector(didTapEnviar(_:)))
-            
+            let textohorallegadaLabel = UILabel()
+            textohorallegadaLabel.text = "Hora de llegada"
             let resultHoraDatePicker = createDatePicker()
             let resultObservacionTextView = createTextView()
             let updateButton = createButton(title: "Actualizar", action: #selector(didTapActualizar(_:)))
@@ -94,19 +105,43 @@ class RutaViewController: UIViewController {
             resultObservacionTextViews.append(resultObservacionTextView)
             updateButtons.append(updateButton)
             guardarButtons.append(guardarButton) // Añadir el botón de guardar a la lista
-
+            
+            // Crear el contenedor con borde
+            let containerView = UIView()
+            containerView.layer.borderWidth = 1.0  // Añadir un borde de 1 px
+            containerView.layer.borderColor = UIColor.gray.cgColor  // Borde de color gris
+            containerView.layer.cornerRadius = 8.0  // Redondear las esquinas del contenedor
+            containerView.clipsToBounds = true  // Asegurar que los elementos dentro del contenedor no se salgan del borde
+            
             let stack = createSectionStack(
-                inputs: [horaDatePicker, observacionTextField, enviarButton],
+                inputs: [paraderoLabel, textohoraLabel, horaDatePicker, textoobsLabel, observacionTextField, enviarButton,textohorallegadaLabel],
                 results: [resultHoraDatePicker, resultObservacionTextView, updateButton, guardarButton]
             )
-            contentView.addSubview(stack)
+            
+            // Añadir el stack dentro del contenedor
+            containerView.addSubview(stack)
             stack.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Configuración de las restricciones para el stack dentro del contenedor
             NSLayoutConstraint.activate([
-                stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                stack.topAnchor.constraint(equalTo: lastView?.bottomAnchor ?? contentView.topAnchor, constant: 16),
+                stack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+                stack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+                stack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
+                stack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16)
             ])
-            lastView = stack
+            
+            // Agregar el contenedor al contentView
+            contentView.addSubview(containerView)
+            
+            // Configurar las restricciones para el contenedor
+            containerView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                containerView.topAnchor.constraint(equalTo: lastView?.bottomAnchor ?? contentView.topAnchor, constant: 16),
+            ])
+            
+            lastView = containerView
         }
         
         if let lastView = lastView {
@@ -139,7 +174,6 @@ class RutaViewController: UIViewController {
         textView.layer.cornerRadius = 5
         textView.backgroundColor = .white
         textView.textColor = .black
-        textView.text = "Texto de resultado..."  // Opcional: Agregar un texto predeterminado
 
         // Restricción de altura mínima para asegurar que se vea
         textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
@@ -202,6 +236,9 @@ class RutaViewController: UIViewController {
         // Rellenar el texto de la observación con el valor actualizado
         let nuevaObservacion = observacionTextFields[index].text ?? ""
         resultObservacionTextViews[index].text = nuevaObservacion
+
+        // Colocar el cursor al principio del campo de texto de observación
+        resultObservacionTextViews[index].becomeFirstResponder()  // Esto da el foco al campo de texto
     }
 
     @objc private func didTapGuardar(_ sender: UIButton) {
@@ -250,4 +287,3 @@ class RutaViewController: UIViewController {
         }
     }
 }
-

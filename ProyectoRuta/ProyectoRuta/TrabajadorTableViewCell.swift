@@ -25,7 +25,7 @@ class TrabajadorTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none //ninguna seleccion de color
-        backgroundColor = UIColor.clear //la celda su background no tenga color
+        backgroundColor = UIColor.lightGray //la celda su background tenga color
     }
     
     //funcion que se crea por defecto

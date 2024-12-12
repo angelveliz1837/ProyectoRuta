@@ -7,6 +7,12 @@
         <attribute name="modelo" optional="YES" attributeType="String"/>
         <attribute name="placa" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Paradero" representedClassName="Paradero" syncable="YES" codeGenerationType="class">
+        <attribute name="direccion" optional="YES" attributeType="String"/>
+        <attribute name="estado" optional="YES" attributeType="String"/>
+        <attribute name="nombreParadero" optional="YES" attributeType="String"/>
+        <attribute name="numeroParadero" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Trabajador" representedClassName="Trabajador" syncable="YES" codeGenerationType="class">
         <attribute name="apellidoMaterno" optional="YES" attributeType="String"/>
         <attribute name="apellidoPaterno" optional="YES" attributeType="String"/>

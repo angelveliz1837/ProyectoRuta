@@ -27,6 +27,9 @@
 		B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */; };
 		B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */; };
 		B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */; };
+		B767158C2D0A117400038A9D /* ListaParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */; };
+		B767158E2D0A125A00038A9D /* EditarParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */; };
+		B76715902D0A189E00038A9D /* ParaderoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaBusViewController.swift; sourceTree = "<group>"; };
 		B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTableViewCell.swift; sourceTree = "<group>"; };
 		B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaViewController.swift; sourceTree = "<group>"; };
+		B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaParaderoViewController.swift; sourceTree = "<group>"; };
+		B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarParaderoViewController.swift; sourceTree = "<group>"; };
+		B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParaderoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 				B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */,
 				B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */,
 				B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */,
+				B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */,
+				B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */,
+				B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */,
 			);
 			path = ProyectoRuta;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 				B71B4A712CF7C12E00E2E6E3 /* ViewController.swift in Sources */,
 				B71B4A902CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift in Sources */,
 				B71B4A922CF7D21B00E2E6E3 /* RegistrarBusViewController.swift in Sources */,
+				B76715902D0A189E00038A9D /* ParaderoTableViewCell.swift in Sources */,
 				B71B4A8E2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift in Sources */,
 				B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */,
 				B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */,
@@ -190,6 +200,7 @@
 				B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */,
 				B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */,
 				B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */,
+				B767158C2D0A117400038A9D /* ListaParaderoViewController.swift in Sources */,
 				B71B4A882CF7C43B00E2E6E3 /* MenuViewController.swift in Sources */,
 				B71B4A842CF7C3F900E2E6E3 /* LoginViewController.swift in Sources */,
 				B71B4A862CF7C41800E2E6E3 /* RegistrarViewController.swift in Sources */,
@@ -197,6 +208,7 @@
 				B71B4A6F2CF7C12E00E2E6E3 /* SceneDelegate.swift in Sources */,
 				B71B4A9A2CF7D26200E2E6E3 /* BusTableViewCell.swift in Sources */,
 				B71B4A8C2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift in Sources */,
+				B767158E2D0A125A00038A9D /* EditarParaderoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +362,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +390,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

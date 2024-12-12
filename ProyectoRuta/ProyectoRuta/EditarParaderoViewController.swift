@@ -1,10 +1,3 @@
-//
-//  EditarParaderoViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 11/12/24.
-//
-
 import UIKit
 import CoreData
 
@@ -24,12 +17,16 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
     // Carga de memoria
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTextField() // Llamamos a la función para configurar los campos de texto
         estadoEditPicker.delegate = self // Asignamos el delegado del picker
         estadoEditPicker.dataSource = self // Asignamos la fuente de datos del picker
         
-        // Deshabilitar el campo placa para que no pueda ser editado
-        numeroParaderoEditTextField.isEnabled = false
+        // Deshabilitar el campo nombre de paradero para que no pueda ser editado
+        nombreParaderoEditTextField.isEnabled = false
+        
+        // Añadir el observer para detectar cambios en el campo numeroParaderoEditTextField
+        numeroParaderoEditTextField.addTarget(self, action: #selector(numeroParaderoChanged), for: .editingChanged)
     }
     
     // FUNCIONES
@@ -50,13 +47,47 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
         }
     }
     
-    // Función para actualizar el bus
+    // Función para validar los campos
+    func validateFields() -> Bool {
+        // Validar el número de paradero (solo números)
+        guard let numeroParaderoText = numeroParaderoEditTextField.text, !numeroParaderoText.isEmpty,
+              numeroParaderoText.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil else {
+            showAlert(message: "El número de paradero solo puede contener números.")
+            return false
+        }
+        
+        // Validar la dirección (no vacía)
+        guard let direccionText = direccionEditTextField.text, !direccionText.isEmpty else {
+            showAlert(message: "La dirección no puede estar vacía.")
+            return false
+        }
+        
+        // Validar el nombre de paradero (no vacío)
+        guard let nombreParaderoText = nombreParaderoEditTextField.text, !nombreParaderoText.isEmpty else {
+            showAlert(message: "El nombre del paradero no puede estar vacío.")
+            return false
+        }
+        
+        // Validar que se haya seleccionado un estado
+        let selectedEstado = estados[estadoEditPicker.selectedRow(inComponent: 0)]
+        if selectedEstado.isEmpty {
+            showAlert(message: "Debe seleccionar un estado.")
+            return false
+        }
+        
+        return true
+    }
+    
+    // Función para editar el paradero
     func editarParadero() {
+        // Validar los campos antes de proceder
+        guard validateFields() else { return }
         
         let context = connectBD() // Contexto para conectarnos a la base de datos
         paraderoUpdate?.setValue(numeroParaderoEditTextField.text, forKey: "numeroParadero")
         paraderoUpdate?.setValue(direccionEditTextField.text, forKey: "direccion")
         paraderoUpdate?.setValue(nombreParaderoEditTextField.text, forKey: "nombreParadero")
+        
         // Obtenemos el estado seleccionado en el picker
         let estadoSeleccionado = estados[estadoEditPicker.selectedRow(inComponent: 0)]
         paraderoUpdate?.setValue(estadoSeleccionado, forKey: "estado")
@@ -104,6 +135,14 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     // Función cuando se selecciona una fila
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // No es necesario hacer nada aquí, ya que el valor se guarda cuando se actualiza el bus.
+        // No es necesario hacer nada aquí, ya que el valor se guarda cuando se actualiza el paradero.
+    }
+    
+    // MARK: - Acción para actualizar nombreParadero
+    @objc func numeroParaderoChanged() {
+        // Solo se actualiza el nombreParadero si se escribe en numeroParaderoEditTextField
+        if let numeroParaderoText = numeroParaderoEditTextField.text {
+            nombreParaderoEditTextField.text = "Paradero \(numeroParaderoText)" // Actualizamos el nombre del paradero
+        }
     }
 }

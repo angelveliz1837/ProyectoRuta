@@ -9,7 +9,7 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var anioFabricacionTextField: UITextField!
     @IBOutlet weak var estadoPicker: UIPickerView!
     
-    let estados = ["Activo", "Inactivo"] // Opciones para el Picker
+    let estados = ["Inactivo", "Activo"] // Opciones para el Picker
     let currentYear = Calendar.current.component(.year, from: Date()) // Año actual
     
     var selectedEstado: String? // Variable para almacenar el estado seleccionado
@@ -32,6 +32,9 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Configuración inicial del estado
         selectedEstado = estados.first
         estadoPicker.selectRow(0, inComponent: 0, animated: false) // Seleccionar el primer valor
+        
+        // Limitar la cantidad de caracteres del campo de placa a 6
+        placaTextField.addTarget(self, action: #selector(placaTextFieldDidChange), for: .editingChanged)
     }
     
     // Función para la conexión a la base de datos
@@ -63,6 +66,41 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
     }
     
+    // Función para formatear la placa
+    func formatPlaca(_ placa: String) -> String {
+        // Eliminar espacios, convertir a mayúsculas y mantener solo caracteres alfanuméricos
+        let placaSinEspacios = placa.uppercased().replacingOccurrences(of: " ", with: "")
+        
+        // Verificar que la placa tenga exactamente 6 caracteres
+        if placaSinEspacios.count == 6 {
+            // Asegurarse de que el formato sea "L-N-L-N-N-N"
+            let letra1 = placaSinEspacios.prefix(1)
+            let letra2 = placaSinEspacios.prefix(2).suffix(1)
+            let letra3 = placaSinEspacios.prefix(3).suffix(1)
+            let numeros = placaSinEspacios.suffix(3)
+            
+            // Verificamos que la placa siga el formato L-N-L-N-N-N
+            if letra1.rangeOfCharacter(from: .letters) != nil &&
+                letra2.rangeOfCharacter(from: .alphanumerics) != nil &&
+                letra3.rangeOfCharacter(from: .letters) != nil &&
+                numeros.rangeOfCharacter(from: .decimalDigits) != nil {
+                
+                // Formato final: "A1A-100"
+                return "\(letra1)\(letra2)\(letra3)-\(numeros)"
+            }
+        }
+        
+        // Si la placa no es válida, devolverla tal como está, sin formatear
+        return placaSinEspacios
+    }
+    
+    // Función para limitar los caracteres del campo de placa a 6
+    @objc func placaTextFieldDidChange() {
+        if let text = placaTextField.text, text.count > 6 {
+            placaTextField.text = String(text.prefix(6)) // Limitar a 6 caracteres
+        }
+    }
+    
     // Función para guardar el bus
     func saveBus() {
         // Validar que todos los campos estén llenos
@@ -74,31 +112,32 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
             return
         }
         
+        // Formatear la placa antes de guardarla
+        let placaFormateada = formatPlaca(placaText)
+        
         // Verificar que la placa no esté repetida
-        if checkPlacaExists(placaText) {
+        if checkPlacaExists(placaFormateada) {
             showAlert(message: "La placa ya está registrada. Por favor ingresa una placa única.")
             return
         }
         
-        _ = placaText // Usamos la placa tal cual es ingresada
-        
         // Función para validar los datos ingresados
         func validateFields() -> Bool {
             // Validación de la Placa (ahora permite letras, números y guiones)
-            guard let placaText = placaTextField.text, !placaText.isEmpty, placaText.rangeOfCharacter(from: CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-"))) != nil else {
-                print("La placa está vacía o contiene caracteres no válidos.")
-                return false
-            }
+                        guard let placaText = placaTextField.text, !placaText.isEmpty, placaText.rangeOfCharacter(from: CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-"))) != nil else {
+                            showAlert(message: "La placa está vacía o contiene caracteres no válidos.")
+                            return false
+                        }
             
             // Validación del modelo (solo letras, sin números)
-            guard let modeloText = modeloTextField.text, !modeloText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: modeloText.replacingOccurrences(of: " ", with: ""))) else {
-                print("El modelo no puede estar vacío y no debe contener números.")
-                return false
-            }
+                        guard let modeloText = modeloTextField.text, !modeloText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: modeloText.replacingOccurrences(of: " ", with: ""))) else {
+                            showAlert(message: "El modelo no puede estar vacío y no debe contener números.")
+                            return false
+                        }
             
             // Validación de la marca (solo letras, sin números)
             guard let marcaText = marcaTextField.text, !marcaText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: marcaText.replacingOccurrences(of: " ", with: ""))) else {
-                print("La marca no puede estar vacía y no debe contener números.")
+                showAlert(message: "La marca no puede estar vacía y no debe contener números.")
                 return false
             }
             
@@ -110,7 +149,7 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             // Validación del estado seleccionado
             guard let selectedEstado = selectedEstado, !selectedEstado.isEmpty else {
-                print("Debe seleccionar un estado.")
+                showAlert(message: "Debe seleccionar un estado.")
                 return false
             }
             
@@ -122,7 +161,7 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Conectarse a la base de datos y guardar el bus
         let context = connectBD() // Contexto para conectarnos a la base de datos
         let entityBus = NSEntityDescription.insertNewObject(forEntityName: "Bus", into: context) as! Bus // Insertamos objetos en la base de datos Bus
-        entityBus.placa = placaTextField.text // Le asignamos valor a la placa lo que vamos escribiendo
+        entityBus.placa = placaFormateada // Asignamos la placa formateada
         entityBus.modelo = modeloTextField.text
         entityBus.marca = marcaTextField.text
         entityBus.anioFabricacion = anioFabricacionTextField.text
@@ -144,46 +183,6 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
-    }
-    
-    // Función para mostrar buses
-    func showBus() {
-        let context = connectBD() // Contexto para conectarnos a la base de datos
-        let fetchRequest: NSFetchRequest<Bus> = Bus.fetchRequest() // Solicitar todos los objetos de tipo Bus
-        
-        do {
-            let result = try context.fetch(fetchRequest) // Ejecutar la consulta
-            
-            print("Registro: \(result.count)")
-            
-            // Recorrer el resultado y mostrar los valores
-            for responseCoreData in result as [NSManagedObject] {
-                let placa = responseCoreData.value(forKey: "placa") // Capturamos placa
-                let modelo = responseCoreData.value(forKey: "modelo")
-                let marca = responseCoreData.value(forKey: "marca")
-                let anioFabricacion = responseCoreData.value(forKey: "anioFabricacion")
-                let estado = responseCoreData.value(forKey: "estado")
-                print("Placa: \(placa ?? "")\nModelo: \(modelo ?? "")\nMarca: \(marca ?? "")\nAño Fabricación: \(anioFabricacion ?? "")\nEstado: \(estado ?? "")")
-            }
-        } catch let error as NSError {
-            print("Error al mostrar: \(error.localizedDescription)")
-        }
-    }
-    
-    // Función para borrar todos los buses
-    func deleteBus() {
-        let context = connectBD() // Contexto para conectarnos a la base de datos
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bus") // Hacemos la consulta a la base de datos Bus
-        let delete = NSBatchDeleteRequest(fetchRequest: fetchRequest) // Vamos a eliminar de forma masiva los datos
-        
-        // En un capturador de error
-        do {
-            try context.execute(delete) // Ejecutamos la eliminación
-            clearTextField() // Limpiamos los campos de texto
-            print("Buses borrados") // Imprimimos en consola
-        } catch let error as NSError {
-            print("Error al borrar: \(error.localizedDescription)")
-        }
     }
     
     // Función para limpiar los campos de texto

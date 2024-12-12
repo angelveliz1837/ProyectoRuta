@@ -1,10 +1,3 @@
-//
-//  RegistrarParaderoViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 27/11/24.
-//
-
 import UIKit
 import CoreData
 
@@ -36,6 +29,12 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         // Configuración inicial del estado
         selectedEstado = estados.first
         estadoPicker.selectRow(0, inComponent: 0, animated: false) // Seleccionar el primer valor
+        
+        // Deshabilitar la edición del campo nombreParadero
+        nombreParaderoTextField.isUserInteractionEnabled = false
+        
+        // Añadir el observer para detectar cambios en el número de paradero
+        numeroParaderoTextField.addTarget(self, action: #selector(numeroParaderoChanged), for: .editingChanged)
     }
     
     // Función para la conexión a la base de datos
@@ -57,6 +56,12 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         // Validación de los campos antes de guardar
         guard validateFields() else { return } // Validar los campos antes de guardar
         
+        // Verificar si el número de paradero ya existe
+        if isNumeroParaderoExistente(numeroParaderoText) {
+            showAlert(message: "El número de paradero \(numeroParaderoText) ya está registrado.")
+            return
+        }
+        
         // Conectarse a la base de datos y guardar el paradero
         let context = connectBD() // Contexto para conectarnos a la base de datos
         let entityParadero = NSEntityDescription.insertNewObject(forEntityName: "Paradero", into: context) as! Paradero // Insertamos objetos en la base de datos Paradero
@@ -75,30 +80,45 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         }
     }
     
+    // Función para verificar si el número de paradero ya existe
+    func isNumeroParaderoExistente(_ numero: String) -> Bool {
+        let context = connectBD()
+        let fetchRequest: NSFetchRequest<Paradero> = Paradero.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "numeroParadero == %@", numero)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            return !result.isEmpty // Si ya existe, retornamos true
+        } catch let error as NSError {
+            print("Error al verificar el número de paradero: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
     // Función para validar los campos
     func validateFields() -> Bool {
         // Validación del número de paradero (solo números)
         guard let numeroParaderoText = numeroParaderoTextField.text, !numeroParaderoText.isEmpty,
               numeroParaderoText.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil else {
-            print("El número de paradero solo puede contener números.")
+            showAlert(message: "El número de paradero solo puede contener números.") // Mostrar alerta
             return false
         }
         
         // Validación de la dirección (puede contener letras y números)
         guard let direccionText = direccionTextField.text, !direccionText.isEmpty else {
-            print("La dirección no puede estar vacía.")
+            showAlert(message: "La dirección no puede estar vacía.") // Mostrar alerta
             return false
         }
         
         // Validación del nombre de paradero (puede contener letras y números)
         guard let nombreParaderoText = nombreParaderoTextField.text, !nombreParaderoText.isEmpty else {
-            print("El nombre del paradero no puede estar vacío.")
+            showAlert(message: "El nombre del paradero no puede estar vacío.") // Mostrar alerta
             return false
         }
         
         // Validación del estado seleccionado
         guard let selectedEstado = selectedEstado, !selectedEstado.isEmpty else {
-            print("Debe seleccionar un estado.")
+            showAlert(message: "Debe seleccionar un estado.") // Mostrar alerta
             return false
         }
         
@@ -111,29 +131,6 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
-    }
-    
-    // Función para mostrar paraderos
-    func showParadero() {
-        let context = connectBD() // Contexto para conectarnos a la base de datos
-        let fetchRequest: NSFetchRequest<Paradero> = Paradero.fetchRequest() // Solicitar todos los objetos de tipo Paradero
-        
-        do {
-            let result = try context.fetch(fetchRequest) // Ejecutar la consulta
-            
-            print("Registro: \(result.count)")
-            
-            // Recorrer el resultado y mostrar los valores
-            for responseCoreData in result as [NSManagedObject] {
-                let numeroParadero = responseCoreData.value(forKey: "numeroParadero") // Capturamos numero de paradero
-                let direccion = responseCoreData.value(forKey: "direccion")
-                let nombreParadero = responseCoreData.value(forKey: "nombreParadero")
-                let estado = responseCoreData.value(forKey: "estado")
-                print("Numero Paradero: \(numeroParadero ?? "")\nDireccion: \(direccion ?? "")\nNombre Paradero: \(nombreParadero ?? "")\nEstado: \(estado ?? "")")
-            }
-        } catch let error as NSError {
-            print("Error al mostrar: \(error.localizedDescription)")
-        }
     }
     
     // Función para borrar todos los paraderos
@@ -186,5 +183,11 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedEstado = estados[row]
     }
+    
+    // MARK: - Action para actualizar nombreParadero
+    @objc func numeroParaderoChanged() {
+        if let numeroParaderoText = numeroParaderoTextField.text {
+            nombreParaderoTextField.text = "Paradero \(numeroParaderoText)"
+        }
+    }
 }
-

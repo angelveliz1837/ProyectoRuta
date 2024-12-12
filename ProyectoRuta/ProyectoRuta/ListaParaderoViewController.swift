@@ -1,120 +1,130 @@
-//
-//  ListaParaderoViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 11/12/24.
-//
-
 import UIKit
-import CoreData // importamos CoreData para la persistencia en IOS
+import CoreData // Importamos CoreData para la persistencia en iOS
 
-//clase padre
-class ListaParaderoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListaParaderoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
-    //componentes de la UI
+    // UI components
     @IBOutlet weak var listaParaderoTableView: UITableView!
     
-    //variables
-    var paraderoData = [Paradero]() //array de tipo paradero para mostrar a los paraderos
+    // Variables
+    var paraderoData = [Paradero]() // Array de paraderos
+    var filteredParaderos = [Paradero]() // Array filtrado para búsqueda
     
-    //carga de memoria
+    // Propiedad para el UISearchController
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    // Carga de memoria
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView() //llamamos a la funcion de configuracion de la tabla
-        showData() //llamamos a la funcion para mostrar los datos del paradero
+        configureTableView() // Configurar la tabla
+        showData() // Mostrar datos de los paraderos
+        
+        // Configuración del UISearchController
+        searchController.searchResultsUpdater = self // El delegado para la actualización de resultados
+        searchController.obscuresBackgroundDuringPresentation = false // No oscurecer el fondo
+        searchController.searchBar.placeholder = "Buscar por dirección"
+        
+        // Establecer el searchBar como el header de la tabla
+        listaParaderoTableView.tableHeaderView = searchController.searchBar
+        
+        // Configurar el UISearchController
+        definesPresentationContext = true // Para evitar que el SearchController se muestre cuando la vista esté sobrepuesta
     }
     
-    //cuando esta apunto de aparecer la vista
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listaParaderoTableView.reloadData()//actualizamos la tabla
+        listaParaderoTableView.reloadData() // Recargar la tabla
     }
     
-    //FUNCIONES
-    //funcion para la conexion a la base de datos
-    func connectBD() -> NSManagedObjectContext{
-        let delegate = UIApplication.shared.delegate as! AppDelegate //instanciamos y llamamos al AppDelegate
-        return delegate.persistentContainer.viewContext //retornamos el contexto de CoreData del AppDelegate
+    // Función para la conexión a la base de datos
+    func connectBD() -> NSManagedObjectContext {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        return delegate.persistentContainer.viewContext
     }
     
-    //funcion para configurar la tabla
-    func configureTableView(){
-        listaParaderoTableView.delegate = self //delegate
-        listaParaderoTableView.dataSource = self //dataSource
-        listaParaderoTableView.rowHeight = 300 //tamanio de la celda
+    // Función para configurar la tabla
+    func configureTableView() {
+        listaParaderoTableView.delegate = self
+        listaParaderoTableView.dataSource = self
+        listaParaderoTableView.rowHeight = 300
     }
-
-    //funcion para mostrar datos
-    func showData(){
-        let context = connectBD() //contexto para conectarnos a la base de datos
-        let fetchRequest: NSFetchRequest<Paradero> = Paradero.fetchRequest()//objeto para visualizar la informacion en el cual debe ser de tipo NSFetchRequest de la base de datos Bus
-            // en un capturador de error
-        do{
-            paraderoData = try context.fetch(fetchRequest)//objeto que llama al contexto para mostrar la informacion
-            print("Se mostraron los datos en la tabla")//imprimir
-        } catch let error as NSError{
-            //aca va el error
-            //podriamos poner una vista en especifica pero por el momento solos imprimimos por consola
+    
+    // Función para mostrar datos
+    func showData() {
+        let context = connectBD()
+        let fetchRequest: NSFetchRequest<Paradero> = Paradero.fetchRequest()
+        
+        do {
+            paraderoData = try context.fetch(fetchRequest)
+            filteredParaderos = paraderoData // Inicialmente, los datos filtrados son los mismos que los datos completos
+            print("Se mostraron los datos en la tabla")
+        } catch let error as NSError {
             print("Error al mostrar: \(error.localizedDescription)")
         }
     }
     
-    //UITableViewDelegate - UITableViewDataSource
+    // UITableViewDataSource y UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
-        //retornamos un porque solo hay un table view
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //retornamos la cantidad del arreglo de la lista
-        return paraderoData.count
+        return filteredParaderos.count // Usamos filteredParaderos en lugar de paraderoData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //llamamos a la celda
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParaderoTableViewCell", for: indexPath) as? ParaderoTableViewCell
-        let paradero = paraderoData[indexPath.row] //pasamos lo que hay en el arreglo de la lista
-        cell?.configureParadero(paradero: paradero, registroParaderoViewController: self) //llamamos a la configuracion de la celda para que se muestren los datos
-        return cell ?? UITableViewCell()//retornamos la celda
+        let paradero = filteredParaderos[indexPath.row] // Obtenemos el paradero de los datos filtrados
+        cell?.configureParadero(paradero: paradero, registroParaderoViewController: self) // Configuramos la celda
+        return cell ?? UITableViewCell() // Devolvemos la celda
     }
     
-    //para poder eliminar dentro del tableView
+    // Función para eliminar un paradero
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let context = connectBD() //contexto para conectarnos a la base de datos
-        let paradero = paraderoData[indexPath.row]
-        //para elegir el swipe de elimianr
-        if editingStyle == .delete{
-            context.delete(paradero)//eliminamos a la persona de la base de datos
-            //en un capturador de error
-            do{
-                try context.save()//guardamos
-                print("Se elimino el registrar") //imprimir
-            } catch let error as NSError{
-                //aca va el error
-                //podriamos poner una vista en especifica pero por el momento solo imprimimos por consola
+        let context = connectBD()
+        let paradero = filteredParaderos[indexPath.row]
+        
+        if editingStyle == .delete {
+            context.delete(paradero)
+            do {
+                try context.save()
+                print("Se eliminó el registro")
+            } catch let error as NSError {
                 print("Error al eliminar el registro: \(error.localizedDescription)")
             }
         }
-        showData() //llamar a la funcion para mostrar a las personas
-        listaParaderoTableView.reloadData() //actualizar la tabla
+        
+        showData()
+        listaParaderoTableView.reloadData()
     }
-
-    //para seleccionar un item de la celda del tableView
+    
+    // Función para seleccionar un item de la celda
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //le pasamos el identificador updateBView
         performSegue(withIdentifier: "updatePView", sender: self)
     }
     
-    //llamamos a la funcion del segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //igualamos el segue con el identificador updateView
         if segue.identifier == "updatePView" {
-            //validamos que el id sea el correcto de la celda de la tabla
-            if let id = listaParaderoTableView.indexPathForSelectedRow{
-                let rowParadero = paraderoData[id.row] //le pasamos el id de la celda de la tabla a la variable rowBus
-                let router = segue.destination as? EditarParaderoViewController //creamos el objeto destino de la clase final
-                router?.paraderoUpdate = rowParadero //le enviamos el id hacia el otro viewController
+            if let id = listaParaderoTableView.indexPathForSelectedRow {
+                let rowParadero = filteredParaderos[id.row]
+                let router = segue.destination as? EditarParaderoViewController
+                router?.paraderoUpdate = rowParadero
             }
         }
+    }
+    
+    // Función para manejar la búsqueda
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        if searchText.isEmpty {
+            filteredParaderos = paraderoData // Si el campo de búsqueda está vacío, mostramos todos los paraderos
+        } else {
+            filteredParaderos = paraderoData.filter { paradero in
+                paradero.direccion?.lowercased().contains(searchText.lowercased()) ?? false // Filtramos por la dirección del paradero
+            }
+        }
+        
+        listaParaderoTableView.reloadData() // Recargamos la tabla con los resultados filtrados
     }
 }

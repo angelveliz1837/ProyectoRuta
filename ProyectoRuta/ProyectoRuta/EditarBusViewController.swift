@@ -1,10 +1,3 @@
-//
-//  EditarBusViewController.swift
-//  ProyectoRuta
-//
-//  Created by DAMII on 27/11/24.
-//
-
 import UIKit
 import CoreData
 
@@ -65,11 +58,64 @@ class EditarBusViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return false
     }
     
+    // Función para validar que los campos no estén vacíos
+    func validateFields() -> Bool {
+        guard let placaText = placaEditTextField.text, !placaText.isEmpty else {
+            showAlert(message: "La placa no puede estar vacía.")
+            return false
+        }
+        
+        guard let modeloText = modeloEditTextField.text, !modeloText.isEmpty else {
+            showAlert(message: "El modelo no puede estar vacío.")
+            return false
+        }
+        
+        guard let marcaText = marcaEditTextField.text, !marcaText.isEmpty else {
+            showAlert(message: "La marca no puede estar vacía.")
+            return false
+        }
+        
+        guard let anioText = anioFabricacionEditTextField.text, !anioText.isEmpty else {
+            showAlert(message: "El año de fabricación no puede estar vacío.")
+            return false
+        }
+        
+        return true
+    }
+    
+    // Función para validar la placa
+    func validatePlaca(_ placa: String) -> Bool {
+        // Verificar que la placa solo tenga caracteres alfanuméricos y guiones
+        let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-"))
+        return placa.rangeOfCharacter(from: allowedCharacterSet.inverted) == nil
+    }
+    
     // Función para actualizar el bus
     func editarBus() {
+        // Validar los campos antes de guardar
+        guard validateFields() else { return }
+        
         // Validar el año de fabricación
         guard let anioText = anioFabricacionEditTextField.text, validateAnioFabricacion(anioText) else {
             showAlert(message: "El año de fabricación debe ser un número entre 1900 y el año actual.")
+            return
+        }
+        
+        // Validar la placa
+        guard let placaText = placaEditTextField.text, validatePlaca(placaText) else {
+            showAlert(message: "La placa contiene caracteres no válidos.")
+            return
+        }
+        
+        // Validar el modelo (solo letras, sin números)
+        guard let modeloText = modeloEditTextField.text, !modeloText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: modeloText.replacingOccurrences(of: " ", with: ""))) else {
+            showAlert(message: "El modelo no puede contener números.")
+            return
+        }
+        
+        // Validar la marca (solo letras, sin números)
+        guard let marcaText = marcaEditTextField.text, !marcaText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: marcaText.replacingOccurrences(of: " ", with: ""))) else {
+            showAlert(message: "La marca no puede contener números.")
             return
         }
         

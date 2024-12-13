@@ -7,15 +7,7 @@
 
 import Foundation
 
-////Campos del SERVICIO WEB DE LA API DE SOCIOS
-//struct SocioResponse: Codable{
-//    //creamos las constantes y su tipo de datos
-//    let first_name: String
-//    let last_name: String
-//    let email: String
-//    let avatar: String
-//}
-
+//Campos del SERVICIO WEB DE LA API DE SOCIOS
 // Modelo para los datos de un solo socio
 struct Socio: Codable {
     let id: Int

@@ -10,8 +10,8 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var cargoPicker: UIPickerView!
     @IBOutlet weak var licenciaTextField: UITextField!
     
-    let cargos = ["Monitor", "Chofer"] // Opciones para el cargo
-    var selectedCargo: String? // Variable para almacenar el cargo seleccionado
+    let cargos = ["Monitor", "Chofer"]
+    var selectedCargo: String?
     
     var dni = ""
     var nombre = ""
@@ -97,10 +97,10 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         }
         
         // Si el cargo es Chofer, la licencia es obligatoria
-                if selectedCargo == "Chofer", let licenciaText = licenciaTextField.text, licenciaText.isEmpty {
-                    showAlert(message: "La licencia es obligatoria para el cargo de Chofer.")
-                    return false
-                }
+        if selectedCargo == "Chofer", let licenciaText = licenciaTextField.text, licenciaText.isEmpty {
+            showAlert(message: "La licencia es obligatoria para el cargo de Chofer.")
+            return false
+        }
         
         return true
     }
@@ -132,7 +132,6 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         entityTrabajador.apellidoMaterno = apellidoMaternoTextField.text
         entityTrabajador.cargo = selectedCargo
         entityTrabajador.licencia = licenciaTextField.text
-        
         //capturador de error
         do {
             try context.save() //guardamos la información
@@ -149,7 +148,7 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
     func showTrabajador() {
         let context = connectBD() //contexto para conectarnos a la base de datos
         let fetchRequest: NSFetchRequest<Trabajador> = Trabajador.fetchRequest() //objeto para visualizar la información en el cual debe ser de tipo NSFetchRequest de la base de datos Trabajador
-            //en un capturador de error
+        //en un capturador de error
         do {
             let result = try context.fetch(fetchRequest) //objeto que llama al contexto para mostrar la información
             
@@ -186,6 +185,7 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         }
     }
     
+    //función para limpiar
     func clearTextField() {
         dniTextField.text = ""
         nombreTextField.text = ""
@@ -195,6 +195,13 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         cargoPicker.selectRow(0, inComponent: 0, animated: false) // Reiniciar el Picker
         licenciaTextField.text = ""
         dniTextField.becomeFirstResponder() //focus al dni
+    }
+
+    // Función para mostrar alerta
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func didTapRegistrar(_ sender: UIButton) {
@@ -230,12 +237,5 @@ class RegistrarTrabajadorViewController: UIViewController, UIPickerViewDelegate,
         } else {
             licenciaTextField.text = "" // Limpiar el campo de licencia si no es Chofer
         }
-    }
-    
-    // Función para mostrar alerta
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }

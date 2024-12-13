@@ -8,7 +8,7 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
     @IBOutlet weak var nombreParaderoTextField: UITextField!
     @IBOutlet weak var estadoPicker: UIPickerView!
     
-    let estados = ["Activo", "Inactivo"] // Opciones para el Picker
+    let estados = ["Activo", "Inactivo"]
     
     var selectedEstado: String? // Variable para almacenar el estado seleccionado
     var numeroParadero = ""
@@ -54,7 +54,7 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         }
         
         // Validación de los campos antes de guardar
-        guard validateFields() else { return } // Validar los campos antes de guardar
+        guard validateFields() else { return }
         
         // Verificar si el número de paradero ya existe
         if isNumeroParaderoExistente(numeroParaderoText) {
@@ -69,7 +69,6 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         entityParadero.direccion = direccionText // Asignar la dirección
         entityParadero.nombreParadero = nombreText // Asignar el nombre del paradero
         entityParadero.estado = selectedEstado // Asignar el estado
-
         // Capturador de errores
         do {
             try context.save() // Guardamos en la base de datos
@@ -138,7 +137,6 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         let context = connectBD() // Contexto para conectarnos a la base de datos
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paradero") // Hacemos la consulta a la base de datos Paradero
         let delete = NSBatchDeleteRequest(fetchRequest: fetchRequest) // Vamos a eliminar de forma masiva los datos
-        
         // En un capturador de error
         do {
             try context.execute(delete) // Ejecutamos la eliminación
@@ -184,7 +182,7 @@ class RegistrarParaderoViewController: UIViewController, UIPickerViewDelegate, U
         selectedEstado = estados[row]
     }
     
-    // MARK: - Action para actualizar nombreParadero
+    // Accion para actualizar nombreParadero
     @objc func numeroParaderoChanged() {
         if let numeroParaderoText = numeroParaderoTextField.text {
             nombreParaderoTextField.text = "Paradero \(numeroParaderoText)"

@@ -10,7 +10,7 @@ class RutaViewController: UIViewController {
     var resultHoraDatePickers: [UIDatePicker] = []
     var resultObservacionTextViews: [UITextView] = []
     var updateButtons: [UIButton] = []
-    var guardarButtons: [UIButton] = [] // Aquí creamos una lista para los botones "Guardar"
+    var guardarButtons: [UIButton] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class RutaViewController: UIViewController {
     }
     
     // MARK: - Funciones de lógica
-    
     func connectBD() -> NSManagedObjectContext {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         return delegate.persistentContainer.viewContext
@@ -32,7 +31,6 @@ class RutaViewController: UIViewController {
     func fetchParaderosActivos() {
         let context = connectBD()
         let fetchRequest: NSFetchRequest<Paradero> = Paradero.fetchRequest()
-        
         let predicate = NSPredicate(format: "estado == %@", "Activo")
         fetchRequest.predicate = predicate
 
@@ -51,7 +49,7 @@ class RutaViewController: UIViewController {
         resultHoraDatePickers.removeAll()
         resultObservacionTextViews.removeAll()
         updateButtons.removeAll()
-        guardarButtons.removeAll() // Limpiar lista de botones "Guardar"
+        guardarButtons.removeAll()
         
         let scrollView = UIScrollView(frame: view.bounds)
         let contentView = UIView()
@@ -60,7 +58,7 @@ class RutaViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         
-        // Ajustar la restricción superior del contentView para darle un margen de 40 puntos
+        // Ajustar las restricciones
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -94,8 +92,6 @@ class RutaViewController: UIViewController {
             let resultHoraDatePicker = createDatePicker()
             let resultObservacionTextView = createTextView()
             let updateButton = createButton(title: "Actualizar", action: #selector(didTapActualizar(_:)))
-            
-            // Crear botón "Guardar" para cada paradero
             let guardarButton = createButton(title: "Guardar", action: #selector(didTapGuardar(_:)))
 
             horaDatePickers.append(horaDatePicker)
@@ -104,7 +100,7 @@ class RutaViewController: UIViewController {
             resultHoraDatePickers.append(resultHoraDatePicker)
             resultObservacionTextViews.append(resultObservacionTextView)
             updateButtons.append(updateButton)
-            guardarButtons.append(guardarButton) // Añadir el botón de guardar a la lista
+            guardarButtons.append(guardarButton)
             
             // Crear el contenedor con borde
             let containerView = UIView()
@@ -198,7 +194,6 @@ class RutaViewController: UIViewController {
     }
 
     // MARK: - Funciones de acción
-
     @objc private func didTapEnviar(_ sender: UIButton) {
         guard let index = enviarButtons.firstIndex(of: sender) else { return }
         let hora = horaDatePickers[index].date
@@ -237,8 +232,10 @@ class RutaViewController: UIViewController {
         let nuevaObservacion = observacionTextFields[index].text ?? ""
         resultObservacionTextViews[index].text = nuevaObservacion
 
+        //---------------------------------------------------------------------
         // Colocar el cursor al principio del campo de texto de observación
         resultObservacionTextViews[index].becomeFirstResponder()  // Esto da el foco al campo de texto
+        //---------------------------------------------------------------------
     }
 
     @objc private func didTapGuardar(_ sender: UIButton) {

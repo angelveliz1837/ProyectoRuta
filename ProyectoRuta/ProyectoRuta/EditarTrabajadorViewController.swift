@@ -12,7 +12,7 @@ class EditarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UI
     
     // Variables
     var trabajadorUpdate: Trabajador?
-    var cargoOptions = ["Chofer", "Monitor"] // Opciones del combo box
+    var cargoOptions = ["Chofer", "Monitor"] // Opciones de cargo
     var trabajadores: [Trabajador] = [] // Lista de trabajadores para validaciones
     
     override func viewDidLoad() {
@@ -157,7 +157,6 @@ class EditarTrabajadorViewController: UIViewController, UIPickerViewDelegate, UI
     }
     
     // MARK: - UIPickerView DataSource y Delegate
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

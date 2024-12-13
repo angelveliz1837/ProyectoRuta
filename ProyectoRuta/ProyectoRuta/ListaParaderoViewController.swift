@@ -1,5 +1,5 @@
 import UIKit
-import CoreData // Importamos CoreData para la persistencia en iOS
+import CoreData // Importamos CoreData
 
 class ListaParaderoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     

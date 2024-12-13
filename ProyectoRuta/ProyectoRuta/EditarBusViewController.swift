@@ -9,13 +9,11 @@ class EditarBusViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var anioFabricacionEditTextField: UITextField!
     @IBOutlet weak var estadoEditPicker: UIPickerView!
     
-    
     // Variables
     var busUpdate: Bus? // Objeto para el bus a editar
     
     // Datos del Picker
     let estados = ["Activo", "Inactivo"]
-    
     let currentYear = Calendar.current.component(.year, from: Date()) // Año actual
     
     // Carga de memoria
@@ -119,12 +117,11 @@ class EditarBusViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         
-        let context = connectBD() // Contexto para conectarnos a la base de datos
+        // Contexto para conectarnos a la base de datos
+        let context = connectBD()
         busUpdate?.setValue(placaEditTextField.text, forKey: "placa")
         busUpdate?.setValue(modeloEditTextField.text, forKey: "modelo")
         busUpdate?.setValue(marcaEditTextField.text, forKey: "marca")
-        
-        // Asignamos el valor del campo "anioFabricacion" como String (no necesitamos convertirlo)
         busUpdate?.setValue(anioFabricacionEditTextField.text, forKey: "anioFabricacion")
         
         // Obtenemos el estado seleccionado en el picker
@@ -156,7 +153,6 @@ class EditarBusViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     // MARK: - UIPickerView DataSource y Delegate
-    
     // Número de componentes (columnas) en el picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // Solo una columna para el estado

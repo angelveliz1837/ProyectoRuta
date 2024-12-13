@@ -10,14 +10,11 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     // Variables
     var paraderoUpdate: Paradero? // Objeto para el paradero a editar
-    
-    // Datos del Picker
     let estados = ["Activo", "Inactivo"]
 
     // Carga de memoria
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTextField() // Llamamos a la función para configurar los campos de texto
         estadoEditPicker.delegate = self // Asignamos el delegado del picker
         estadoEditPicker.dataSource = self // Asignamos la fuente de datos del picker
@@ -91,7 +88,6 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
         // Obtenemos el estado seleccionado en el picker
         let estadoSeleccionado = estados[estadoEditPicker.selectedRow(inComponent: 0)]
         paraderoUpdate?.setValue(estadoSeleccionado, forKey: "estado")
-        
         // Capturador de errores
         do {
             try context.save() // Guardamos en base de datos
@@ -117,7 +113,6 @@ class EditarParaderoViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     // MARK: - UIPickerView DataSource y Delegate
-    
     // Número de componentes (columnas) en el picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // Solo una columna para el estado

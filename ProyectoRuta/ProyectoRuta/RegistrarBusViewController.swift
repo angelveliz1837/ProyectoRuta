@@ -9,7 +9,7 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var anioFabricacionTextField: UITextField!
     @IBOutlet weak var estadoPicker: UIPickerView!
     
-    let estados = ["Inactivo", "Activo"] // Opciones para el Picker
+    let estados = ["Inactivo", "Activo"]
     let currentYear = Calendar.current.component(.year, from: Date()) // Año actual
     
     var selectedEstado: String? // Variable para almacenar el estado seleccionado
@@ -124,16 +124,16 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Función para validar los datos ingresados
         func validateFields() -> Bool {
             // Validación de la Placa (ahora permite letras, números y guiones)
-                        guard let placaText = placaTextField.text, !placaText.isEmpty, placaText.rangeOfCharacter(from: CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-"))) != nil else {
-                            showAlert(message: "La placa está vacía o contiene caracteres no válidos.")
-                            return false
-                        }
+            guard let placaText = placaTextField.text, !placaText.isEmpty, placaText.rangeOfCharacter(from: CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-"))) != nil else {
+                showAlert(message: "La placa está vacía o contiene caracteres no válidos.")
+                return false
+            }
             
             // Validación del modelo (solo letras, sin números)
-                        guard let modeloText = modeloTextField.text, !modeloText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: modeloText.replacingOccurrences(of: " ", with: ""))) else {
-                            showAlert(message: "El modelo no puede estar vacío y no debe contener números.")
-                            return false
-                        }
+            guard let modeloText = modeloTextField.text, !modeloText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: modeloText.replacingOccurrences(of: " ", with: ""))) else {
+                showAlert(message: "El modelo no puede estar vacío y no debe contener números.")
+                return false
+            }
             
             // Validación de la marca (solo letras, sin números)
             guard let marcaText = marcaTextField.text, !marcaText.isEmpty, CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: marcaText.replacingOccurrences(of: " ", with: ""))) else {
@@ -166,7 +166,6 @@ class RegistrarBusViewController: UIViewController, UIPickerViewDelegate, UIPick
         entityBus.marca = marcaTextField.text
         entityBus.anioFabricacion = anioFabricacionTextField.text
         entityBus.estado = selectedEstado
-
         // Capturador de errores
         do {
             try context.save() // Guardamos en la base de datos

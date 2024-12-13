@@ -38,7 +38,7 @@ class BusTableViewCell: UITableViewCell {
         self.placaLabel.text = "Placa: \(bus.placa ?? "")"
         self.modeloLabel.text = "Modelo: \(bus.modelo ?? "")" //le pasamos el nombre
         self.marcaLabel.text = "Marca: \(bus.marca ?? "")"
-        self.anioFabricacionLabel.text = "Anio Fabricacion: \(bus.anioFabricacion ?? "")" //le pasamos el nombre
+        self.anioFabricacionLabel.text = "Anio Fabricacion: \(bus.anioFabricacion ?? "")"
         self.estadoLabel.text = "Estado: \(bus.estado ?? "")"
         self.bus = bus //le pasamos el bus
         self.registroBusViewController = registroBusViewController //le pasamos al mismo viewController

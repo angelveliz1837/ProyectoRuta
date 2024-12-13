@@ -128,3 +128,4 @@ class ListaTrabajadorViewController: UIViewController, UITableViewDataSource, UI
         listaTrabajadorTableView.reloadData() // Recargamos la tabla con los datos filtrados
     }
 }
+

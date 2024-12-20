@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7102CD72D10DBE900917FBB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7102CD62D10DBE900917FBB /* FirebaseAuth */; };
+		B7102CD92D10DBE900917FBB /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B7102CD82D10DBE900917FBB /* FirebaseAuthCombine-Community */; };
+		B7102CDB2D10DBE900917FBB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7102CDA2D10DBE900917FBB /* FirebaseDatabase */; };
+		B7102CDD2D10DBE900917FBB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B7102CDC2D10DBE900917FBB /* FirebaseFirestore */; };
+		B7102CDF2D10DBE900917FBB /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B7102CDE2D10DBE900917FBB /* FirebaseFirestoreCombine-Community */; };
 		B71057582D0B324300FA450F /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = B71057572D0B324300FA450F /* AlamofireImage */; };
 		B710575A2D0B32FF00FA450F /* SociosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71057592D0B32FF00FA450F /* SociosViewController.swift */; };
 		B710575D2D0B335500FA450F /* ListaSocioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */; };
@@ -35,6 +40,9 @@
 		B767158C2D0A117400038A9D /* ListaParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */; };
 		B767158E2D0A125A00038A9D /* EditarParaderoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */; };
 		B76715902D0A189E00038A9D /* ParaderoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */; };
+		B78A3C792D15098A00AA1588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B78A3C782D15098A00AA1588 /* GoogleService-Info.plist */; };
+		B7F63A052D149742000777FE /* trabajadores.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F63A042D149742000777FE /* trabajadores.swift */; };
+		B7F63A072D14A1F5000777FE /* buses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F63A062D14A1F5000777FE /* buses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +75,9 @@
 		B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaParaderoViewController.swift; sourceTree = "<group>"; };
 		B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarParaderoViewController.swift; sourceTree = "<group>"; };
 		B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParaderoTableViewCell.swift; sourceTree = "<group>"; };
+		B78A3C782D15098A00AA1588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F63A042D149742000777FE /* trabajadores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trabajadores.swift; sourceTree = "<group>"; };
+		B7F63A062D14A1F5000777FE /* buses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +86,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71057582D0B324300FA450F /* AlamofireImage in Frameworks */,
+				B7102CD92D10DBE900917FBB /* FirebaseAuthCombine-Community in Frameworks */,
+				B7102CDB2D10DBE900917FBB /* FirebaseDatabase in Frameworks */,
+				B7102CDF2D10DBE900917FBB /* FirebaseFirestoreCombine-Community in Frameworks */,
+				B7102CDD2D10DBE900917FBB /* FirebaseFirestore in Frameworks */,
+				B7102CD72D10DBE900917FBB /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B702D1522D13BCE900923F5D /* firebase */ = {
+			isa = PBXGroup;
+			children = (
+				B71B4A832CF7C3F900E2E6E3 /* LoginViewController.swift */,
+				B71B4A852CF7C41800E2E6E3 /* RegistrarViewController.swift */,
+				B71B4A872CF7C43B00E2E6E3 /* MenuViewController.swift */,
+			);
+			path = firebase;
+			sourceTree = "<group>";
+		};
+		B702D1532D13BCFF00923F5D /* api */ = {
+			isa = PBXGroup;
+			children = (
+				B710575F2D0B353C00FA450F /* model.swift */,
+				B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */,
+				B71057592D0B32FF00FA450F /* SociosViewController.swift */,
+				B710575C2D0B335500FA450F /* ListaSocioTableViewCell.xib */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		B702D1542D13BD1F00923F5D /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+				B7F63A032D1475FF000777FE /* trabajador */,
+				B7F63A022D1475F7000777FE /* paradero */,
+				B7F63A012D1475EE000777FE /* bus */,
+			);
+			path = coredata;
+			sourceTree = "<group>";
+		};
 		B71B4A602CF7C12E00E2E6E3 = {
 			isa = PBXGroup;
 			children = (
@@ -100,36 +147,56 @@
 		B71B4A6B2CF7C12E00E2E6E3 /* ProyectoRuta */ = {
 			isa = PBXGroup;
 			children = (
+				B702D1542D13BD1F00923F5D /* coredata */,
+				B702D1532D13BCFF00923F5D /* api */,
+				B702D1522D13BCE900923F5D /* firebase */,
 				B71B4A6C2CF7C12E00E2E6E3 /* AppDelegate.swift */,
 				B71B4A6E2CF7C12E00E2E6E3 /* SceneDelegate.swift */,
 				B71B4A702CF7C12E00E2E6E3 /* ViewController.swift */,
 				B71B4A722CF7C12E00E2E6E3 /* Main.storyboard */,
-				B71057592D0B32FF00FA450F /* SociosViewController.swift */,
-				B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */,
-				B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */,
 				B71B4A782CF7C12F00E2E6E3 /* Assets.xcassets */,
 				B71B4A7A2CF7C12F00E2E6E3 /* LaunchScreen.storyboard */,
 				B71B4A7D2CF7C12F00E2E6E3 /* Info.plist */,
 				B71B4A752CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld */,
-				B71B4A832CF7C3F900E2E6E3 /* LoginViewController.swift */,
-				B71B4A852CF7C41800E2E6E3 /* RegistrarViewController.swift */,
-				B71B4A872CF7C43B00E2E6E3 /* MenuViewController.swift */,
+				B78A3C782D15098A00AA1588 /* GoogleService-Info.plist */,
+			);
+			path = ProyectoRuta;
+			sourceTree = "<group>";
+		};
+		B7F63A012D1475EE000777FE /* bus */ = {
+			isa = PBXGroup;
+			children = (
+				B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */,
+				B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */,
+				B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */,
+				B71B4A912CF7D21B00E2E6E3 /* RegistrarBusViewController.swift */,
+				B7F63A062D14A1F5000777FE /* buses.swift */,
+			);
+			path = bus;
+			sourceTree = "<group>";
+		};
+		B7F63A022D1475F7000777FE /* paradero */ = {
+			isa = PBXGroup;
+			children = (
+				B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */,
+				B71B4A932CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift */,
+				B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */,
+				B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */,
+				B71B4A9B2CF7ED6500E2E6E3 /* RutaViewController.swift */,
+			);
+			path = paradero;
+			sourceTree = "<group>";
+		};
+		B7F63A032D1475FF000777FE /* trabajador */ = {
+			isa = PBXGroup;
+			children = (
 				B71B4A892CF7C45900E2E6E3 /* RegistrarTrabajadorViewController.swift */,
 				B71B4A8B2CF7C46D00E2E6E3 /* ListaTrabajadorViewController.swift */,
 				B71B4A8D2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift */,
 				B71B4A8F2CF7C51100E2E6E3 /* TrabajadorTableViewCell.swift */,
-				B71B4A932CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift */,
-				B71B4A952CF7D24000E2E6E3 /* EditarBusViewController.swift */,
-				B71B4A972CF7D24F00E2E6E3 /* ListaBusViewController.swift */,
-				B71B4A992CF7D26200E2E6E3 /* BusTableViewCell.swift */,
-				B767158B2D0A117400038A9D /* ListaParaderoViewController.swift */,
-				B767158D2D0A125A00038A9D /* EditarParaderoViewController.swift */,
-				B767158F2D0A189E00038A9D /* ParaderoTableViewCell.swift */,
-				B710575B2D0B335500FA450F /* ListaSocioTableViewCell.swift */,
-				B710575C2D0B335500FA450F /* ListaSocioTableViewCell.xib */,
-				B710575F2D0B353C00FA450F /* model.swift */,
+				B7F63A042D149742000777FE /* trabajadores.swift */,
 			);
-			path = ProyectoRuta;
+			path = trabajador;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +217,11 @@
 			name = ProyectoRuta;
 			packageProductDependencies = (
 				B71057572D0B324300FA450F /* AlamofireImage */,
+				B7102CD62D10DBE900917FBB /* FirebaseAuth */,
+				B7102CD82D10DBE900917FBB /* FirebaseAuthCombine-Community */,
+				B7102CDA2D10DBE900917FBB /* FirebaseDatabase */,
+				B7102CDC2D10DBE900917FBB /* FirebaseFirestore */,
+				B7102CDE2D10DBE900917FBB /* FirebaseFirestoreCombine-Community */,
 			);
 			productName = ProyectoRuta;
 			productReference = B71B4A692CF7C12E00E2E6E3 /* ProyectoRuta.app */;
@@ -181,6 +253,7 @@
 			mainGroup = B71B4A602CF7C12E00E2E6E3;
 			packageReferences = (
 				B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B71B4A6A2CF7C12E00E2E6E3 /* Products */;
 			projectDirPath = "";
@@ -198,6 +271,7 @@
 			files = (
 				B71B4A7C2CF7C12F00E2E6E3 /* LaunchScreen.storyboard in Resources */,
 				B710575E2D0B335500FA450F /* ListaSocioTableViewCell.xib in Resources */,
+				B78A3C792D15098A00AA1588 /* GoogleService-Info.plist in Resources */,
 				B71B4A792CF7C12F00E2E6E3 /* Assets.xcassets in Resources */,
 				B71B4A742CF7C12E00E2E6E3 /* Main.storyboard in Resources */,
 			);
@@ -215,9 +289,11 @@
 				B71B4A922CF7D21B00E2E6E3 /* RegistrarBusViewController.swift in Sources */,
 				B76715902D0A189E00038A9D /* ParaderoTableViewCell.swift in Sources */,
 				B71B4A8E2CF7C47B00E2E6E3 /* EditarTrabajadorViewController.swift in Sources */,
+				B7F63A052D149742000777FE /* trabajadores.swift in Sources */,
 				B71B4A962CF7D24000E2E6E3 /* EditarBusViewController.swift in Sources */,
 				B71B4A6D2CF7C12E00E2E6E3 /* AppDelegate.swift in Sources */,
 				B71B4A772CF7C12E00E2E6E3 /* ProyectoRuta.xcdatamodeld in Sources */,
+				B7F63A072D14A1F5000777FE /* buses.swift in Sources */,
 				B71B4A9C2CF7ED6500E2E6E3 /* RutaViewController.swift in Sources */,
 				B71B4A942CF7D23000E2E6E3 /* RegistrarParaderoViewController.swift in Sources */,
 				B71B4A982CF7D24F00E2E6E3 /* ListaBusViewController.swift in Sources */,
@@ -454,6 +530,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
@@ -465,6 +549,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B7102CD62D10DBE900917FBB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B7102CD82D10DBE900917FBB /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		B7102CDA2D10DBE900917FBB /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		B7102CDC2D10DBE900917FBB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B7102CDE2D10DBE900917FBB /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7102CD52D10DBE900917FBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
 		B71057572D0B324300FA450F /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B71057562D0B324300FA450F /* XCRemoteSwiftPackageReference "AlamofireImage" */;
